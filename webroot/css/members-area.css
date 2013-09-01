@@ -1,0 +1,254 @@
+#nav-menu{
+    height: 40px;
+    background-color: #0e5350;
+}
+
+#nav-menu a{
+    height: 33px;
+    display: block;
+    float: left;
+    color: #FFF;
+    padding: 7px 20px 0px 20px;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    text-shadow: 1px 1px 2px #000;
+    border-right: 2px groove #173837;
+}
+
+#nav-menu a:hover{
+    background-color: #234a48;
+}
+
+#nav-menu a#logout{
+    border-right: none;
+    border-left: 2px groove #173837;
+    float: right;
+}
+
+#scores-table-container{
+    display: none;
+    height: 436px;
+    background-color: #F0F0F0;
+    box-shadow: 0px 0px 5px #999;
+}
+
+#scores-table{
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 4px;
+    background-color: #FFF;
+}
+
+#scores-table th{
+    text-align: left;
+    padding: 5px;
+    border: 1px solid #888;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#scores-table th#courseName{
+    min-width: 150px;
+}
+
+#scores-table th img{
+    position: relative;
+    top: 1px;
+}
+
+#scores-table td{
+    border: 1px solid #888;
+    padding: 5px;
+    height: 26px;
+}
+
+
+
+.input-container{
+    margin-bottom: 15px;
+}
+
+.score-input{
+    width: 36px;
+    height: 14px;
+    border: 2px solid transparent;
+    padding: 2px;
+    box-shadow: 0px 0px 3px #888;
+}
+
+.score-input.courseName{
+    width: 120px;
+}
+
+.score-input.formattedDate{
+    width: 85px;
+}
+
+.edit-link, .delete-link, .cancel-edit-link{
+    color: blue;
+    cursor: pointer;
+}
+
+#no-scores{
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+#handicap{
+    float: left;
+    color: #FFF;
+    font-size: 20px;
+    margin: 6px 10px 0px 127px;
+}
+
+#hcp{
+    float: left;
+    background-color: #FFF;
+    border-radius: 5px;
+    color: #000;
+    font-size: 18px;
+    padding: 0px 6px;
+    margin-top: 8px;
+}
+
+#add-score-form{
+    background-color: #999;
+    width: 320px;
+    padding: 10px;
+    background-color: #DDD;
+    box-shadow: 0px 0px 5px #666;
+}
+
+#add-score-form .field{
+    float: left;
+    width: 160px;
+}
+
+.enter-score-txt{
+    padding: 3px;
+    width: 130px;
+}
+
+.enter-score-txt.short{
+    width: 60px;
+}
+
+#scores-table .lastTwenty{
+    background-color: #f3ff8a;
+}
+
+.score-box{
+    float: left;
+    padding: 3px;
+}
+
+#scores-table .used .score-box{
+    background-color: #b3ffa6;
+    border: 1px solid #666;
+}
+
+#key-container{
+    float: right;
+    padding: 8px;
+    border: 1px dotted #000;
+}
+
+.key-box{
+    height: 20px;
+    width: 35px;
+    border: 1px solid #666;
+    float: left;
+    margin-right: 5px;
+}
+
+.key-box-label{
+    float: left;
+    padding-top: 3px;
+}
+
+#most-recent{
+    background-color: #f3ff8a;
+}
+
+#used-in-hcp{
+    background-color: #b3ffa6;
+    margin-left: 40px;
+}
+
+#export-csv{
+    border-radius: 5px;
+    float: left;
+    color: #FFF;
+    cursor: pointer;
+    background-color: #0E5350;
+    padding: 6px;
+    margin-left: 52px;
+    border: 2px groove #333;
+}
+
+.row-icon{
+    cursor: pointer;
+}
+
+.td-center{
+    text-align: center;
+}
+
+.add-score td{
+    text-align: center;
+    cursor: pointer;
+}
+
+.add-score td:hover{
+    background-color: #b3ffa6;
+}
+
+#add-score-link{
+    color: blue;
+}
+
+#delete-all{
+    display: block;
+    float: left;
+    padding: 6px;
+    background-color: #0E5350;
+    color: #FFF;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+    margin-top: 12px;
+    border: 2px groove #333;
+}
+
+#notification{
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.pagination-arrows{
+    float: right;
+    margin-top: 8px;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+#arrow-right{
+    margin-left: 15px;
+}
+
+#pagination{
+    float: right;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #0E5350;
+    color: #FFF;
+    margin: 5px 20px 0px 0px;
+}
+
+.score-errors{
+    margin-left: 20px;
+    line-height: 18px;
+}

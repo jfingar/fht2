@@ -1,0 +1,72 @@
+<h1>Complete the form below to create a free account. All fields are required.</h1>
+<div class="form-wrapper-container register">
+    <form class="standardForm" id="registerForm" action="register" method="post">
+        <div class="form-heading">Register</div>
+        <div class="floatLeft">
+            <label>First Name</label>
+            <input name="firstName" type="text" class="text-input-1" />
+        </div>
+        <div class="floatLeft rightCol">
+            <label>Last Name</label>
+            <input name="lastName" type="text" class="text-input-1" />
+        </div>
+        <div class="floatLeft">
+            <label>Email Address</label>
+            <input name="email" type="text" class="text-input-1" />
+        </div>
+        <div class="floatLeft rightCol">
+            <label>Create A Password</label>
+            <input name="password1" type="password" class="text-input-1" />
+        </div>
+        <div class="floatLeft">
+            <label>Re-Enter Password</label>
+            <input name="password2" type="password" class="text-input-1" />
+        </div>
+        <div class="chxContainer floatLeft rightCol">
+            <input type="checkbox" value="1" checked="checked" name="tandc" /> <label class="chxLabel" for="tandc">I agree to the terms and conditions</label>
+        </div>
+        <div class="clear"></div>
+        <div id="registerSubmitContainer" class="submitContainer">
+            <input type="submit" value="Register" class="submit-input-1" />
+        </div>
+        <div class="ajaxResponseContainer hidden">
+        </div>
+    </form>
+</div> 
+<div class="ad-block">
+    <div class="reg-ad" style="margin-top: 15px;">
+        <script type="text/javascript"><!--
+            google_ad_client = "ca-pub-0606881367275935";
+            /* register-page-1 */
+            google_ad_slot = "9239834352";
+            google_ad_width = 468;
+            google_ad_height = 60;
+            //-->
+        </script>
+        <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+    </div>
+    
+    <div class="reg-ad">
+        <script type="text/javascript"><!--
+            google_ad_client = "ca-pub-0606881367275935";
+            /* register-page-2 */
+            google_ad_slot = "3193300752";
+            google_ad_width = 468;
+            google_ad_height = 60;
+            //-->
+        </script>
+        <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+    </div>
+    <div class="reg-ad">
+        <script type="text/javascript"><!--
+            google_ad_client = "ca-pub-0606881367275935";
+            /* register-page-3 */
+            google_ad_slot = "7623500357";
+            google_ad_width = 468;
+            google_ad_height = 60;
+            //-->
+        </script>
+        <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+    </div>
+</div>
+<div class="clear"></div>

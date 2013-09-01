@@ -1,0 +1,838 @@
+45
+45
+Array
+(
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [production] => Array
+        (
+            [display_errors] => 0
+            [db_name] => freehandicaptracker
+            [timezone] => America/Phoenix
+        )
+
+    [production:development] => Array
+        (
+            [display_errors] => 1
+            [db_username] => root
+            [db_password] => 
+        )
+
+    [development:laptop-dev] => Array
+        (
+            [db_host] => 192.168.139.129
+        )
+
+    [development:desktop-dev] => Array
+        (
+            [db_host] => 
+        )
+
+)
+
+Array
+(
+    [production] => Array
+        (
+            [display_errors] => 0
+            [db_name] => freehandicaptracker
+            [timezone] => America/Phoenix
+        )
+
+    [production:development] => Array
+        (
+            [display_errors] => 1
+            [db_username] => root
+            [db_password] => 
+        )
+
+    [development:laptop-dev] => Array
+        (
+            [db_host] => 192.168.139.129
+        )
+
+    [development:desktop-dev] => Array
+        (
+            [db_host] => 
+        )
+
+)
+
+Array
+(
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [0] => Array
+        (
+            [display_errors] => 1
+            [db_username] => root
+            [db_password] => 
+        )
+
+)
+
+Array
+(
+    [0] => Array
+        (
+            [display_errors] => 1
+            [db_username] => root
+            [db_password] => 
+        )
+
+)
+
+Array
+(
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+)
+
+development
+production
+development
+production
+laptop-dev
+development
+desktop-dev
+development
+laptop-dev
+development
+desktop-dev
+development
+development
+development
+development
+production
+laptop-dev
+production
+desktop-dev
+production
+laptop-dev
+development
+desktop-dev
+development
+development
+laptop-dev
+laptop-dev
+laptop-dev
+development
+development
+development
+production
+laptop-dev
+production
+desktop-dev
+production
+laptop-dev
+development
+desktop-dev
+development
+desktop-dev
+laptop-dev
+Array
+(
+    [db_host] => 192.168.139.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.139.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.139.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.139.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.76.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.76.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.76.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.76.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.76.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.76.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.76.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.76.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+1
+1
+Array
+(
+    [db_host] => 192.168.76.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.76.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+1
+1
+Array
+(
+    [db_host] => 192.168.76.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.76.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+1
+1
+Array
+(
+    [db_host] => 192.168.76.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.76.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.76.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.76.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.76.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.76.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.76.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.76.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.76.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.76.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.76.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.76.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.76.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.76.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.76.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.76.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.76.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.76.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.76.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.76.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.76.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.76.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+<<<<<<< HEAD
+
+Array
+(
+    [db_host] => 192.168.139.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.139.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.139.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.139.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.139.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.139.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.139.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.139.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.139.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.139.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.139.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.139.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.139.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.139.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.139.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+Array
+(
+    [db_host] => 192.168.139.129
+    [display_errors] => 1
+    [db_username] => root
+    [db_password] => 
+    [db_name] => freehandicaptracker
+    [timezone] => America/Phoenix
+)
+
+=======
+
+>>>>>>> 47b5eb3982ff680b284fad207cef14177febb393
+1
