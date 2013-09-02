@@ -73,8 +73,10 @@ class Utils
         $message->setTo($email,"Jason Fingar");
         $message->setBody($emailContent,'text/html');
         
-        // Sendmail
-        $transport = \Swift_SendmailTransport::newInstance('/usr/sbin/sendmail -bs');
+        // Smtp
+        $transport = \Swift_SmtpTransport::newInstance('smtpout.secureserver.net',25)
+        ->setUsername("support@freehandicaptracker.net")
+        ->setPassword("s2qq3c5g");
         $mailer = \Swift_Mailer::newInstance($transport);
         $result = $mailer->send($message);
         return $result;
