@@ -1,8 +1,6 @@
 <?php
 namespace Models\Helpers;
 use Libraries\TinyPHP\Application;
-use Models\PasswordReset AS PasswordReset_Model;
-use Models\Mappers\PasswordReset AS PasswordReset_Mapper;
 class Utils
 {
     private static $productionExceptionMsg = 'Oops! An error occurred behind the scenes. Please contact the website administrator for more information.';
@@ -48,37 +46,12 @@ class Utils
         return $usedDiffsMap[$key];
     }
     
-    public static function sendPasswordResetEmail($email)
+    public static function getResetPasswordHash()
     {
         $x = substr(time(),5,4);
         $x .= substr(time(),8);
         $y = md5($x) . substr(time(),4,2);
         $hash = md5($y);
-        $passwordResetMapper = new PasswordReset_Mapper();
-        $passwordReset = new PasswordReset_Model();
-        $passwordReset->setEmail($email);
-        $passwordReset->setHash($hash);
-        $passwordReset->setExpiration(time() + 3600);
-        $passwordResetMapper->save($passwordReset);
-        
-        $emailContent = "Dear FreeHandicapTracker.net User,<br /><br />";
-        $emailContent .= "Please click on the link below to reset your account password. This link will expire approximately 1 hour after reception of this e-mail. <br /><br />";
-        $emailContent .= "<a href=\"http://www.freehandicaptracker.net/pw-reset?email=$email&hash=$hash\">http://www.freehandicaptracker.net/pw-reset?email=$email&hash=$hash</a><br /><br />";
-        $emailContent .= "Thank you for your continued use of FreeHandicapTracker.net!";
-        
-        $emailSubject = "FreeHandicapTracker.net Password Reset";
-        
-        $message = \Swift_Message::newInstance($emailSubject);
-        $message->setFrom("support@freehandicaptracker.net", "FreeHandicapTracker.net");
-        $message->setTo($email,"Jason Fingar");
-        $message->setBody($emailContent,'text/html');
-        
-        // Smtp
-        $transport = \Swift_SmtpTransport::newInstance('smtpout.secureserver.net',25)
-        ->setUsername("support@freehandicaptracker.net")
-        ->setPassword("s2qq3c5g");
-        $mailer = \Swift_Mailer::newInstance($transport);
-        $result = $mailer->send($message);
-        return $result;
+        return $hash;
     }
 }
