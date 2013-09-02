@@ -71,7 +71,7 @@ class Utils
         $message = \Swift_Message::newInstance($emailSubject);
         $message->setFrom("support@freehandicaptracker.net", "FreeHandicapTracker.net");
         $message->setTo($email,"Jason Fingar");
-        $message->setBody($emailContent);
+        $message->setBody($emailContent,'text/html');
         
         // Sendmail
         $transport = \Swift_SendmailTransport::newInstance('/usr/sbin/sendmail -bs');
