@@ -24,8 +24,7 @@ class AuthController extends ControllerBase
                 $json['errors'][] = 'Incorrect Email Address or Password.';
             }
         }catch(\Exception $e){
-            //$json['errors'][] = Utils::errMsgHandler($e);
-            $json['errors'][] = $e->getMessage();
+            $json['errors'][] = Utils::errMsgHandler($e);
         }
         echo json_encode($json);
     }
