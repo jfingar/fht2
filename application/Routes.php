@@ -19,5 +19,6 @@ $aRoutes = array(
     new Route('members-area/scores-csv','MembersAreaController','getCSV'),
     new Route('members-area/get-handicap','MembersAreaController','getHandicap'),
     new Route('members-area/delete-all-scores','MembersAreaController','deleteAllScores'),
-    new Route('send-reset-pw-email','IndexController','passwordResetEmail')
+    new Route('send-reset-pw-email','IndexController','passwordResetEmail'),
+    new Route('pw-reset','IndexController','passwordReset')
 );

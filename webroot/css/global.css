@@ -4,6 +4,11 @@ html{
 	font-size: 12px;
 }
 
+.ui-widget-overlay{
+    opacity: 0.75 !important;
+    background: url("images/ui-bg_flat_0_000000_40x100.png") repeat-x scroll 50% 50% #000000 !important;
+}
+
 .html-cache{
     display: none;
 }
@@ -295,4 +300,17 @@ h1{
 #fgt-pswd{
     color: blue;
     cursor: pointer;
+}
+
+.fgt-pwd-directions{
+    margin-bottom: 16px;
+}
+
+.fgt-pwd-input-container{
+    margin-bottom: 15px;
+}
+
+#fgt-pswd-email{
+    width: 250px;
+    padding: 5px;
 }

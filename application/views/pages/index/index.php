@@ -60,12 +60,13 @@
     <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
 </div>
 <div id="fgt-pswd-modal">
-    <p>Please enter your Email address, and we will send you a link to reset your password.</p>
-    <p>If you do not receive the e-mail, make sure to check your spam folder.</p>
+    <p class="fgt-pwd-directions">Please enter your Email address, and we will send you a link to reset your password.</p>
     <form id="fgt-pswd-form">
-        <label for="fgt-pswd-email">Email:</label> <input type="text" name="email" id="fgt-pswd-email" />
+        <div class="fgt-pwd-input-container">
+            <label for="fgt-pswd-email">Email:</label> <input type="text" name="email" id="fgt-pswd-email" />
+        </div>
         <div>
-            <input type="submit" value="Send" />
+            <input id="fgt-pwd-submit" type="submit" value="Send" />
         </div>
     </form>
 </div>

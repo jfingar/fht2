@@ -4,7 +4,9 @@ $(document).ready(function(){
     $('#fgt-pswd-modal').dialog({
         title : 'Password Reset',
         autoOpen : false,
-        modal : true
+        modal : true,
+        height : 175,
+        width: 500
     });
     $('#fgt-pswd').click(function(){
         $('#fgt-pswd-modal').dialog('open');

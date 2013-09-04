@@ -204,7 +204,7 @@ function saveScore(obj){
         }
         fetchUserScores();
         refreshHandicap();
-        notify("Score Saved.","Congrats!");
+        notify("Your score has been saved.","Score Saved");
     },'json');
 }
 
