@@ -36,7 +36,7 @@ class Application
     
     private static function initSwiftMailer()
     {
-        $swiftMailerIncludeFilePath = self::$APP_ROOT_DIR . '../swiftmailer/lib/swift_required.php';
+        $swiftMailerIncludeFilePath = self::$APP_ROOT_DIR . '../libraries/swiftmailer/lib/swift_required.php';
         if(file_exists($swiftMailerIncludeFilePath)){
             require_once $swiftMailerIncludeFilePath;
         }
