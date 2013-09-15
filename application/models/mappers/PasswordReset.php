@@ -10,8 +10,8 @@ class PasswordReset extends MapperBase
     {
         $obj->setId($row['id'])
             ->setEmail($row['email'])
-            ->setPassword($row['hash'])
-            ->setFirstName($row['expiration']);
+            ->setHash($row['hash'])
+            ->setExpiration($row['expiration']);
     }
     
    protected function getProperties($obj)

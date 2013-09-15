@@ -67,7 +67,7 @@
             <input name="email" id="pwReset-email" type="text" class="text-input-1" />
         </div>
         <div id="pwResetSubmitContainer" class="submitContainer">
-            <input type="submit" value="Login" class="submit-input-1" />
+            <input type="submit" value="Send" class="submit-input-1" />
         </div>
         <div class="ajaxResponseContainer hidden">
         </div>

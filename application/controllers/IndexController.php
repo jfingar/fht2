@@ -4,6 +4,7 @@ use Libraries\TinyPHP\ControllerBase;
 use Models\Helpers\Utils;
 use Models\PasswordReset AS PasswordReset_Model;
 use Models\Mappers\PasswordReset AS PasswordReset_Mapper;
+use Models\Helpers\PasswordReset AS PasswordReset_Helper;
 use Libraries\TinyPHP\Mail;
 use Models\Helpers\User;
 use \Exception;
@@ -24,10 +25,15 @@ class IndexController extends ControllerBase
         $email = $_POST['email'];
         $errors = array();
         try{
+            if(!$email){
+                throw new Exception("Please enter your Email address.");
+            }
             if(!User::emailExists($email, null)){
                 throw new Exception("Email address not found. Please register for a new account.");
             }
-
+            if(PasswordReset_Helper::ValidRecordExists($email)){
+                throw new Exception("There is already a pending password reset for this account. Please double-check your Email inbox, and also check your spam folder. If you did not receive the Email, please contact us at support@freehandicaptracker.net");
+            }
             $hash = Utils::getResetPasswordHash();
 
             $passwordResetMapper = new PasswordReset_Mapper();
@@ -50,7 +56,7 @@ class IndexController extends ControllerBase
             $mail->setBody($emailContent);
             $mail->send();
         }catch(Exception $e){
-            $errors[] = Utils::errMsgHandler($e);
+            $errors[] = $e->getMessage();
         }
         echo json_encode($errors);
     }
