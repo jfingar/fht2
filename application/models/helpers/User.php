@@ -86,7 +86,7 @@ class User
      * Does the e-mail already exist in the database?
      * (if this is an update, 2nd param will not be null. Use to ignore current user's email)
      */
-    private static function emailExists($email,$userID)
+    public static function emailExists($email,$userID)
     {
         $userMapper = new User_Mapper();
         $userWithExistingEmail = $userMapper->fetchRow("email = :email",array(':email' => $email));

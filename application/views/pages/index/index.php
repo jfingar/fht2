@@ -61,12 +61,15 @@
 </div>
 <div id="fgt-pswd-modal">
     <p class="fgt-pwd-directions">Please enter your Email address, and we will send you a link to reset your password.</p>
-    <form id="fgt-pswd-form">
-        <div class="fgt-pwd-input-container">
-            <label for="fgt-pswd-email">Email:</label> <input type="text" name="email" id="fgt-pswd-email" />
-        </div>
+    <form class="standardForm" id="pwResetForm" action="/send-reset-pw-email" method="post">
         <div>
-            <input id="fgt-pwd-submit" type="submit" value="Send" />
+            <label>Email Address</label>
+            <input name="email" id="pwReset-email" type="text" class="text-input-1" />
+        </div>
+        <div id="pwResetSubmitContainer" class="submitContainer">
+            <input type="submit" value="Login" class="submit-input-1" />
+        </div>
+        <div class="ajaxResponseContainer hidden">
         </div>
     </form>
 </div>
