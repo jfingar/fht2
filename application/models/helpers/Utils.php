@@ -45,13 +45,4 @@ class Utils
         );
         return $usedDiffsMap[$key];
     }
-    
-    public static function getResetPasswordHash()
-    {
-        $x = substr(time(),5,4);
-        $x .= substr(time(),8);
-        $y = md5($x) . substr(time(),4,2);
-        $hash = md5($y);
-        return $hash;
-    }
 }

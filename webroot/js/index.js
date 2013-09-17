@@ -59,7 +59,7 @@ function initPwReset(){
                     }
                     pwResetForm.find('.ajaxResponseContainer').addClass('errors').html(errorString).show();
                 }else{
-                    pwResetForm.find('.ajaxResponseContainer').addClass('').html("Email sent. Thank you.").show();
+                    pwResetForm.find('.ajaxResponseContainer').addClass('success').html("<div>Email sent. Thank you.</div>").show();
                 }
             }
         });
