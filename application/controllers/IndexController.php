@@ -1,7 +1,6 @@
 <?php
 namespace Controllers;
 use Libraries\TinyPHP\ControllerBase;
-use Models\Helpers\Utils;
 use Models\PasswordReset AS PasswordReset_Model;
 use Models\Mappers\PasswordReset AS PasswordReset_Mapper;
 use Models\Helpers\PasswordReset AS PasswordReset_Helper;
@@ -34,7 +33,7 @@ class IndexController extends ControllerBase
             if(PasswordReset_Helper::ValidRecordExists($email)){
                 throw new Exception("There is already a pending password reset for this account. Please double-check your Email inbox, and also check your spam folder. If you did not receive the Email, please contact us at support@freehandicaptracker.net");
             }
-            $hash = Utils::getResetPasswordHash();
+            $hash = PasswordReset_Helper::getResetPasswordHash();
 
             $passwordResetMapper = new PasswordReset_Mapper();
             $passwordReset = new PasswordReset_Model();
