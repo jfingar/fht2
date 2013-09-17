@@ -62,6 +62,13 @@ class IndexController extends ControllerBase
 
     protected function passwordReset()
     {
-
+        $this->title = "Free Handicap Tracker - Reset Your Password";
+        $email = $_GET['email'];
+        $hash = $_GET['hash'];
+        $passwordResetMapper = new PasswordReset_Mapper();
+        $result = $passwordResetMapper->fetchRow("email = :email AND hash = :hash AND expiration > :exp",array(':email' => $email, ':hash' => $hash, ':exp' => time()));
+        if(empty($result)){
+            $this->invalidPwReset = true;
+        }
     }
 }

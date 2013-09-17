@@ -53,7 +53,6 @@ class Mail
         $message->setFrom($this->from);
         if(empty($this->recipients)){
             throw new Exception("Please add at least 1 recipient!");
-            return;
         }
         foreach($this->recipients as $recipientEmail){
             $message->addTo($recipientEmail);
