@@ -4,6 +4,7 @@ use Libraries\TinyPHP\ControllerBase;
 use Models\PasswordReset AS PasswordReset_Model;
 use Models\Mappers\PasswordReset AS PasswordReset_Mapper;
 use Models\Helpers\PasswordReset AS PasswordReset_Helper;
+use Models\Mappers\User AS User_Mapper;
 use Libraries\TinyPHP\Mail;
 use Models\Helpers\User;
 use \Exception;
@@ -33,7 +34,7 @@ class IndexController extends ControllerBase
             if(PasswordReset_Helper::ValidRecordExists($email)){
                 throw new Exception("There is already a pending password reset for this account. Please double-check your Email inbox, and also check your spam folder. If you did not receive the Email, please contact us at support@freehandicaptracker.net");
             }
-            $hash = PasswordReset_Helper::getResetPasswordHash();
+            $hash = PasswordReset_Helper::GenerateResetPasswordHash();
 
             $passwordResetMapper = new PasswordReset_Mapper();
             $passwordReset = new PasswordReset_Model();
@@ -63,12 +64,47 @@ class IndexController extends ControllerBase
     protected function passwordReset()
     {
         $this->title = "Free Handicap Tracker - Reset Your Password";
+        $this->addJavascript('/js/pw-reset.js');
         $email = $_GET['email'];
         $hash = $_GET['hash'];
-        $passwordResetMapper = new PasswordReset_Mapper();
-        $result = $passwordResetMapper->fetchRow("email = :email AND hash = :hash AND expiration > :exp",array(':email' => $email, ':hash' => $hash, ':exp' => time()));
-        if(empty($result)){
-            $this->invalidPwReset = true;
+        if(!PasswordReset_Helper::Validate($email,$hash)){
+           $this->invalidPwReset = true;
         }
+    }
+    
+    protected function saveNewPassword()
+    {
+        $this->isAjax = true;
+        $email = $_POST['email'];
+        $hash = $_POST['hash'];
+        $pw1 = $_POST['pw1'];
+        $pw2 = $_POST['pw2'];
+        
+        $errors = array();
+        try{
+            if(!trim($pw1) || !trim($pw2)){
+                throw new Exception("Please enter a new password in both fields.");
+            }
+            if($pw1 != $pw2){
+                throw new Exception("Passwords do not match. Please type them in again.");
+            }
+            if(!PasswordReset_Helper::Validate($email,$hash)){
+                throw new Exception("Invalid Email Address or Hash Value.");
+            }
+            $userMapper = new User_Mapper();
+            $user = $userMapper->fetchRow("email = :email", array(":email" => $email));
+            $user->setPassword($pw1);
+            $userMapper->save($user);
+            
+            // delete password reset record
+            $pwResetMapper = new PasswordReset_Mapper();
+            $pwResetObjects = $pwResetMapper->fetchAll("email = :email",array(":email" => $email));
+            foreach($pwResetObjects as $pwReset){
+                $pwResetMapper->delete($pwReset);
+            }
+        }catch(Exception $e){
+            $errors[] = $e->getMessage();
+        }
+        echo json_encode($errors);
     }
 }

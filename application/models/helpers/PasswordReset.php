@@ -3,7 +3,7 @@ namespace Models\Helpers;
 use Models\Mappers\PasswordReset AS PasswordReset_Mapper;
 class PasswordReset
 {
-    public static function getResetPasswordHash()
+    public static function GenerateResetPasswordHash()
     {
         $x = substr(time(),5,4);
         $x .= substr(time(),8);
@@ -25,5 +25,12 @@ class PasswordReset
             return true;
         }
         return false;
+    }
+    
+    public static function Validate($email,$hash)
+    {
+        $passwordResetMapper = new PasswordReset_Mapper();
+        $result = $passwordResetMapper->fetchRow("email = :email AND hash = :hash AND expiration > :exp",array(':email' => $email, ':hash' => $hash, ':exp' => time()));
+        return !empty($result);
     }
 }
