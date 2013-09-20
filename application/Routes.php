@@ -21,5 +21,6 @@ $aRoutes = array(
     new Route('members-area/delete-all-scores','MembersAreaController','deleteAllScores'),
     new Route('send-reset-pw-email','IndexController','passwordResetEmail'),
     new Route('pw-reset','IndexController','passwordReset'),
-    new Route('save-new-password','IndexController','saveNewPassword')
+    new Route('save-new-password','IndexController','saveNewPassword'),
+    new Route('members-area/my-account','MembersAreaController','myAccount')
 );

@@ -151,8 +151,6 @@
 
 #key-container{
     float: right;
-    padding: 8px;
-    border: 1px dotted #000;
 }
 
 .key-box{
@@ -184,8 +182,10 @@
     cursor: pointer;
     background-color: #0E5350;
     padding: 6px;
-    margin-left: 52px;
+    margin-left: 5px;
+    margin-top: 12px;
     border: 2px groove #333;
+    font-size: 14px;
 }
 
 .row-icon{
@@ -251,4 +251,15 @@
 .score-errors{
     margin-left: 20px;
     line-height: 18px;
+}
+
+.members-area-heading{
+    float: left;
+    color: #0e5350;
+}
+
+.members-area-top{
+    padding: 7px 10px;
+    box-shadow: -8px 0px 12px #AAA;
+    margin: 10px 0px;
 }
