@@ -27,7 +27,6 @@
 }
 
 #scores-table-container{
-    display: none;
     height: 436px;
     background-color: #F0F0F0;
     box-shadow: 0px 0px 5px #999;
@@ -262,4 +261,8 @@
     padding: 7px 10px;
     box-shadow: -8px 0px 12px #AAA;
     margin: 10px 0px;
+}
+
+#fade-in-container{
+    display: none;
 }

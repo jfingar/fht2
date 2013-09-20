@@ -10,14 +10,16 @@
     <div class="clear"></div>
 </div>
 
-<div id="scores-table-container">
-</div>
+<div id="fade-in-container">
+    <div id="scores-table-container">
+    </div>
 
-<a id="delete-all">Delete All Scores</a>
-<div id="export-csv">Export Scores as Excel (CSV) File</div>
-<img class="pagination-arrows" id="arrow-right" src="/img/arrow_right.png" />
-<img class="pagination-arrows" id="arrow-left" src="/img/arrow_left.png" />
-<div class="clear"></div>
-<div id="pagination"></div>
-<div class="clear"></div>
+    <a id="delete-all">Delete All Scores</a>
+    <div id="export-csv">Export Scores as Excel (CSV) File</div>
+    <img class="pagination-arrows" id="arrow-right" src="/img/arrow_right.png" />
+    <img class="pagination-arrows" id="arrow-left" src="/img/arrow_left.png" />
+    <div class="clear"></div>
+    <div id="pagination"></div>
+    <div class="clear"></div>
+</div>
 <?= $this->returnView('/templates/members-area'); ?>

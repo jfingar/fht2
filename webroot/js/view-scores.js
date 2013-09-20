@@ -84,7 +84,7 @@ function fetchUserScores(isPageLoad){
         totalPages = Math.ceil(scores.length / rowsPerPage) == 0 ? 1 : Math.ceil(scores.length / rowsPerPage);
         renderScoresView();
         if(isPageLoad){
-            scoresTableContainer.fadeIn("slow");
+            $('#fade-in-container').fadeIn("slow");
         }
     },'json');
 }

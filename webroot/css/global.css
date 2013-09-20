@@ -4,6 +4,10 @@ html{
 	font-size: 12px;
 }
 
+a img{
+    border: none;
+}
+
 .ui-widget-overlay{
     opacity: 0.75 !important;
     background: url("images/ui-bg_flat_0_000000_40x100.png") repeat-x scroll 50% 50% #000000 !important;
