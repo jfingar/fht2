@@ -20,6 +20,9 @@ class User
             $diffsUseCount = Utils::differentialsUsedMap($diffsCount);
             $usedDiffs = array_slice($diffs,0,$diffsUseCount);
             $handicap = round((array_sum($usedDiffs) / $diffsUseCount) * .96,1);
+            if($handicap <= 0){
+                $handicap = 'Scratch';
+            }
         }
         return $handicap;
     }
