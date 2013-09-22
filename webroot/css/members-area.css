@@ -258,9 +258,10 @@
 }
 
 .members-area-top{
-    padding: 7px 10px;
-    box-shadow: -8px 0px 12px #AAA;
+    padding: 8px;
+    box-shadow: 0px 0px 3px #888;
     margin: 10px 0px;
+    background-color: #F0F0F0;
 }
 
 #fade-in-container{
