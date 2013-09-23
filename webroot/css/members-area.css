@@ -267,3 +267,16 @@
 #fade-in-container{
     display: none;
 }
+
+.member-data-input-container{
+    float: left;
+}
+
+.member-data-input-container label{
+    display: block;
+}
+
+#show-update-pw{
+    cursor: pointer;
+    color: blue;
+}
