@@ -35,6 +35,7 @@ class MembersAreaController extends ControllerBase
     protected function myAccount()
     {
         $this->title = "Free Handicap Tracker - Account Settings";
+        $this->addJavascript('/js/my-account.js');
     }
     
     protected function saveScore()

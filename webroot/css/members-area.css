@@ -270,6 +270,7 @@
 
 .member-data-input-container{
     float: left;
+    margin-right: 15px;
 }
 
 .member-data-input-container label{
@@ -279,4 +280,8 @@
 #show-update-pw{
     cursor: pointer;
     color: blue;
+}
+
+#member-data-submit{
+    display: none;
 }
