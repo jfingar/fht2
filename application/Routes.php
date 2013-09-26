@@ -23,5 +23,6 @@ $aRoutes = array(
     new Route('pw-reset','IndexController','passwordReset'),
     new Route('save-new-password','IndexController','saveNewPassword'),
     new Route('members-area/my-account','MembersAreaController','myAccount'),
-    new Route('members-area/delete-account','MembersAreaController','deleteAccount')
+    new Route('members-area/delete-account','MembersAreaController','deleteAccount'),
+    new Route('members-area/save-member-data','MembersAreaController','saveMemberData')
 );

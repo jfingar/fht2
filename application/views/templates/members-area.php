@@ -13,7 +13,7 @@
         <th class="sortable" id="differential">Differential <img src="/img/sort_neutral_green.png" /></th>
         <th class="sortable" id="holesPlayed">Holes Played <img src="/img/sort_neutral_green.png" /></th>
         <th class="sortable" id="tees">Tees <img src="/img/sort_neutral_green.png" /></th>
-        <th colspan="2">&nbsp;</th>
+        <th colspan="2" style="width: 58px;">&nbsp;</th>
     </tr>
 </script>
 

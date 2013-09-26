@@ -17,7 +17,7 @@
             <input name="lastName" id="lastName" type="text" class="text-input-1" value="<?= $this->user->getLastName(); ?>" />
         </div>
         <div class="floatLeft">
-            <label>Email Address</label>
+            <label>Email Address (Login)</label>
             <input name="email" id="email" type="text" class="text-input-1" value="<?= $this->user->getEmail(); ?>" />
         </div>
         <div id="loginSubmitContainer" class="submitContainer floatLeft" style="padding: 23px 0px 0px 55px;">
@@ -32,5 +32,5 @@
 <div class="clear"></div>
 <div id="more-account-opts">
     <a id="show-update-pw">CHANGE PASSWORD</a>
-    <a id="delete-account">DELETE MY ACCOUNT</a>
+    <a id="delete-account">DELETE ACCOUNT</a>
 </div>

@@ -125,6 +125,13 @@ class MembersAreaController extends ControllerBase
         session_unset();
     }
     
+    protected function saveMemberData()
+    {
+        $this->isAjax = true;
+        $errors = array();
+        echo json_encode($errors);
+    }
+    
     protected function getCsv()
     {
         $this->suppressLayout = true;

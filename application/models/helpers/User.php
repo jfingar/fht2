@@ -3,6 +3,7 @@ namespace Models\Helpers;
 use Models\User AS User_Model;
 use Models\Mappers\User AS User_Mapper;
 use Models\Mappers\Score AS Score_Mapper;
+use Libraries\TinyPHP\Validate\EmailAddress AS EmailValidator;
 class User
 {
     public static function getHandicap(User_Model $user)
@@ -60,7 +61,9 @@ class User
             $errors[] = 'Please enter a valid Last Name';
         }
         
-        if(!$user->getEmail()){
+        $emailValidator = new EmailValidator();
+        $emailValidator->setValidateMx(true);
+        if(!$user->getEmail() || !$emailValidator->isValid($user->getEmail())){
             $errors[] = 'Please enter a valid Email Address';
         }
         

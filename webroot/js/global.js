@@ -1,4 +1,4 @@
-var loadingGif = '<img src="img/loader.gif" alt="Loading..." class="loadingGif" />';
+var loadingGif = '<img src="/img/loader.gif" alt="Loading..." class="loadingGif" />';
 $(document).ready(function(){
     $('body').on('click','.notification-close',function(){
         $('#notification').html("").hide();
