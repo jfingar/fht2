@@ -133,7 +133,7 @@ body{
     padding: 5px;
     width: 218px;
 }
-.register .text-input-1{
+.twoColumn .text-input-1{
     width: 190px;
 }
 .submit-input-1{
@@ -231,7 +231,7 @@ h1{
     font-size: 11px;
 }
 
-.form-wrapper-container.register{
+.form-wrapper-container.twoColumn{
     width: 445px;
     margin-top: 15px;
 }

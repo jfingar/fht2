@@ -14,7 +14,7 @@ class MembersAreaController extends ControllerBase
     {
         if(!isset($_SESSION['id'])){
             header("Location: /index");
-            exit();
+            return;
         }
         $userMapper = new User_Mapper();
         $this->user = $userMapper->find($_SESSION['id']);
@@ -116,6 +116,13 @@ class MembersAreaController extends ControllerBase
         }catch(Exception $e){
             echo Utils::errMsgHandler($e);
         }
+    }
+    
+    protected function deleteAccount()
+    {
+        $userMapper = new User_Mapper();
+        $userMapper->delete($this->user);
+        session_unset();
     }
     
     protected function getCsv()

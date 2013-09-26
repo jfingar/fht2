@@ -1,5 +1,5 @@
 <h1>Complete the form below to create a free account. All fields are required.</h1>
-<div class="form-wrapper-container register">
+<div class="form-wrapper-container twoColumn">
     <form class="standardForm" id="registerForm" action="register" method="post">
         <div class="form-heading">Register</div>
         <div class="floatLeft">

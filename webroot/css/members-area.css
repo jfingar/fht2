@@ -277,11 +277,20 @@
     display: block;
 }
 
-#show-update-pw{
+#show-update-pw, #delete-account{
     cursor: pointer;
     color: blue;
+    font-size: 16px;
+}
+
+#show-update-pw{
+    margin-right: 20px;
 }
 
 #member-data-submit{
     display: none;
+}
+
+#more-account-opts{
+    margin-top: 15px;
 }

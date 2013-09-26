@@ -10,4 +10,14 @@ $(document).ready(function(){
             $('#member-data-submit').show();
         }
     });
+    $('#delete-account').click(function(){
+        if(confirm("Are you sure you want to delete your account? All of your scores and account data will be permanently erased!")){
+            $.ajax({
+                url : '/members-area/delete-account',
+                success : function(){
+                    window.location.href = '/index';
+                }
+            });
+        }
+    });
 });
