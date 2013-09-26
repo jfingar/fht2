@@ -128,7 +128,16 @@ class MembersAreaController extends ControllerBase
     protected function saveMemberData()
     {
         $this->isAjax = true;
-        $errors = array();
+        $userMapper = new User_Mapper;
+        $user = $userMapper->find($this->user->getId());
+        $user->setFirstName($_POST['firstName']);
+        $user->setLastName($_POST['lastName']);
+        $user->setEmail($_POST['email']);
+
+        $errors = User_Helper::validate($user);
+        if(empty($errors)){
+            $userMapper->save($user);
+        }
         echo json_encode($errors);
     }
     
