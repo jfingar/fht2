@@ -66,7 +66,9 @@ function deleteAllScores(){
 
 function addScore(){
     resetAll();
-    $('.add-score').replaceWith(addScoreRowActive);
+    var activeRow = $($.parseHTML(addScoreRowActive));
+    $('.add-score').replaceWith(activeRow);
+    activeRow.find('.score-input.courseName').focus();
 }
 
 function sortTable(obj){
