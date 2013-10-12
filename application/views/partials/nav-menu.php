@@ -2,8 +2,14 @@
     <div id="nav-menu">
         <a href="view-scores">My Scores</a>
         <a href="my-account">My Account</a>
-        <div id="handicap">Current Handicap:</div>
-        <div id="hcp"><?= $this->hcp; ?></div>
+        <div class="stat-label">Current Handicap:</div>
+        <div id="hcp" class="stat-container"></div>
+        <div class="stat-label">Best Score:</div>
+        <div id="best" class="stat-container"></div>
+        <div class="stat-label">Average Score:</div>
+        <div id="avg" class="stat-container"></div>
+        <div class="stat-label">Rounds:</div>
+        <div id="rounds" class="stat-container"></div>
         <a href="/members-area/logout" id="logout">Logout</a>
         <div class="clear"></div>
     </div>

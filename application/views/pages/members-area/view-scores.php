@@ -10,6 +10,18 @@
     <div class="clear"></div>
 </div>
 
+<div id="long-ad">
+    <script type="text/javascript"><!--
+        google_ad_client = "ca-pub-0606881367275935";
+        /* long-ad */
+        google_ad_slot = "5764990759";
+        google_ad_width = 970;
+        google_ad_height = 90;
+        //-->
+    </script>
+    <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+</div>
+
 <div id="fade-in-container">
     <div id="scores-table-container">
     </div>
@@ -21,5 +33,26 @@
     <div class="clear"></div>
     <div id="pagination"></div>
     <div class="clear"></div>
+</div>
+<div id="adModal">
+    <div id="adHeadline">
+        <p>
+            Welcome to the new and improved FreeHandicapTracker.net website!
+        </p>
+        <p>
+            Please enjoy the new layout and features.
+        </p>
+    </div>
+    <div id="popupAdContainer">
+        <script type="text/javascript"><!--
+            google_ad_client = "ca-pub-0606881367275935";
+            /* Big Popup Ad */
+            google_ad_slot = "4481669952";
+            google_ad_width = 336;
+            google_ad_height = 280;
+            //-->
+        </script>
+        <script type="text/javascript" src="//pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+    </div>
 </div>
 <?= $this->returnView('/templates/members-area'); ?>

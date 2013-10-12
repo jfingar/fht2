@@ -94,14 +94,14 @@
     margin-top: 15px;
 }
 
-#handicap{
+.stat-label{
     float: left;
     color: #FFF;
-    font-size: 20px;
-    margin: 6px 10px 0px 127px;
+    font-size: 16px;
+    margin: 9px 5px 0px 15px;
 }
 
-#hcp{
+.stat-container{
     float: left;
     background-color: #FFF;
     border-radius: 5px;
@@ -109,6 +109,7 @@
     font-size: 18px;
     padding: 0px 6px;
     margin-top: 8px;
+    margin-right: 12px;
 }
 
 #add-score-form{
@@ -145,6 +146,7 @@
 #scores-table .used .score-box{
     background-color: #b3ffa6;
     border: 1px solid #666;
+    border-radius: 5px;
 }
 
 #key-container{
@@ -292,4 +294,26 @@
 
 #more-account-opts{
     margin-top: 15px;
+}
+
+#adHeadline{
+    background-color: #EFEFEF;
+    font-weight: bold;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#popupAdContainer{
+    background-color: #EFEFEF;
+    text-align: center;
+    padding: 10px;
+}
+
+#adModal{
+    display: none;
+}
+
+#long-ad{
+    margin-bottom: 15px;
+    width: auto;
 }

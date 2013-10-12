@@ -40,6 +40,7 @@ $(document).ready(function(){
     $('body').on('click','.add-score',function(){addScore();});
     $('#delete-all').click(function(){deleteAllScores();});
     $('.pagination-arrows').click(function(){nav($(this));});
+    $('#export-csv').click(function(){exportCsv();});
     
     /** bind datepicker widget **/
     $('body').on('focus','.formattedDate',function(){
@@ -48,7 +49,29 @@ $(document).ready(function(){
     
     /** Kickoff main score load process **/
     fetchUserScores(true);
+    
+    /** init popup modal with ad **/
+    $('#adModal').dialog({
+        title : 'The New FreeHandicapTracker.net',
+        modal : true,
+        width : 390,
+        autoOpen : false
+    });
+    adTrigger();
+    refreshStats();
 });
+
+function adTrigger(){
+    $.post('/members-area/ad-trigger',function(response){
+        if(response.showAd){
+            $('#adModal').dialog('open');
+        }
+    },'json');
+}
+
+function exportCsv(){
+    window.location.href = '/members-area/scores-csv?orderBy=' + sortField + '&dir=' + sortDir;
+}
 
 function deleteAllScores(){
     if(!scores.length){
@@ -59,7 +82,7 @@ function deleteAllScores(){
     if(cfm){
         $.post('/members-area/delete-all-scores',function(){
             fetchUserScores(true);
-            refreshHandicap();
+            refreshStats();
         });
     }
 }
@@ -158,7 +181,7 @@ function deleteScore(obj){
         var scoreId = obj.parents('tr').find('input[name="id"]').val();
         $.post('/members-area/delete-score',{id : scoreId},function(){
             fetchUserScores();
-            refreshHandicap();
+            refreshStats();
         });
     }
 }
@@ -205,14 +228,14 @@ function saveScore(obj){
             return;
         }
         fetchUserScores();
-        refreshHandicap();
+        refreshStats();
         notify("Your score has been saved.","Score Saved");
     },'json');
 }
 
 function validateScoreData(row){
     row.find('.score-input').each(function(){
-        $(this).css('border','2px solid transparent');
+        $(this).css('border','2px ridge #CCC');
     });
     var highlightBorder = function(obj){obj.css('border','2px solid red');};
     var courseName = row.find('input[name="courseName"]');
@@ -261,10 +284,4 @@ function validateScoreData(row){
         return false;
     }
     return true;
-}
-
-function refreshHandicap(){
-    $.get('/members-area/get-handicap',function(response){
-        $('#hcp').text(response);
-    });
 }

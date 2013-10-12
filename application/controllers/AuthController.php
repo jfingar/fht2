@@ -32,6 +32,7 @@ class AuthController extends ControllerBase
     protected function logout()
     {
         unset($_SESSION['id']);
+        unset($_SESSION['showIntro']);
         header("Location: /index");
     }
 }

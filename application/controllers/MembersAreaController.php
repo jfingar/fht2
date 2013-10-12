@@ -21,8 +21,10 @@ class MembersAreaController extends ControllerBase
         if(!$this->user){
             die("User Not Found! You need to reset your session or just click <a href=\"/members-area/logout\">Here</a> to Logout.");
         }
-        $this->hcp = User_Helper::getHandicap($this->user);
         $this->addStylesheet('/css/members-area.css');
+        if(!isset($_SESSION['showIntro'])){
+            $_SESSION['showIntro'] = true;
+        }
     }
     
     protected function viewScores()
@@ -36,6 +38,17 @@ class MembersAreaController extends ControllerBase
     {
         $this->title = "Free Handicap Tracker - Account Settings";
         $this->addJavascript('/js/my-account.js');
+    }
+    
+    protected function adTrigger()
+    {
+        $this->isAjax = true;
+        $response = array();
+        if($_SESSION['showIntro']){
+            $_SESSION['showIntro'] = false;
+            $response['showAd'] = true;
+        }
+        echo json_encode($response);
     }
     
     protected function saveScore()
@@ -144,19 +157,23 @@ class MembersAreaController extends ControllerBase
     protected function getCsv()
     {
         $this->suppressLayout = true;
-        $this->suppressView = true;
+        $this->view = 'partials/scores-csv';
         header('Content-type: text/csv');
         header('Content-disposition: attachment;filename=Scores.csv');
         $orderBy = $_GET['orderBy'];
         $dir = $_GET['dir'];
         $scoreMapper = new Score_Mapper();
         $this->scores = $scoreMapper->fetchAll("user_id = :user_id ORDER BY $orderBy $dir",array(':user_id' => $this->user->getId()));       
-        echo $this->returnView('partials/scores-csv');
     }
     
-    protected function getHandicap()
+    protected function getStats()
     {
         $this->isAjax = true;
-        echo User_Helper::getHandicap($this->user);
+        $stats = array();
+        $stats['hcp'] = User_Helper::getHandicap($this->user);
+        $stats['best'] = User_Helper::getBestScore($this->user);
+        $stats['count'] = User_Helper::getRoundsPlayedCount($this->user);
+        $stats['avg'] = User_Helper::getAverageScore($this->user);
+        echo json_encode($stats);
     }
 }

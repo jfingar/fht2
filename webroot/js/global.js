@@ -38,3 +38,12 @@ function notify(msg,title){
         handle : '.notification-header'
     });
 }
+
+function refreshStats(){
+    $.get('/members-area/get-stats',function(response){
+        $('#hcp').text(response.hcp);
+        $('#best').text(response.best);
+        $('#avg').text(response.avg);
+        $('#rounds').text(response.count);
+    },'json');
+}

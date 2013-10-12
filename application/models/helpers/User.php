@@ -28,6 +28,40 @@ class User
         return $handicap;
     }
     
+    public static function getBestScore(User_Model $user)
+    {
+        $bestScore = 'N/A';
+        $scoreMapper = new Score_Mapper();
+        $score = $scoreMapper->fetchRow("user_id = :user_id ORDER BY score ASC", array(':user_id' => $user->getId()));
+        if($score){
+            $bestScore = $score->getScore();
+        }
+        return $bestScore;
+    }
+    
+    public static function getAverageScore(User_Model $user)
+    {
+        $avg = 'N/A';
+        $scoreMapper = new Score_Mapper();
+        $resultSet = $scoreMapper->fetchAll("user_id = :user_id", array(':user_id' => $user->getId()));
+        if(!empty($resultSet)){
+            $sumScores = 0;
+            foreach($resultSet as $score){
+                $sumScores += $score->getScore();
+            }
+            $avg = round($sumScores / count($resultSet));
+        }
+        return $avg;
+    }
+    
+    public static function getRoundsPlayedCount(User_Model $user)
+    {
+        $scoreMapper = new Score_Mapper();
+        $resultSet = $scoreMapper->fetchAll("user_id = :user_id", array(':user_id' => $user->getId()));
+        $roundsPlayed = count($resultSet);
+        return $roundsPlayed;
+    }
+    
     public static function authenticate($email,$password)
     {
         try{

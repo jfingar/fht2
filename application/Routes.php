@@ -17,12 +17,13 @@ $aRoutes = array(
     new Route('members-area/get-scores','MembersAreaController','getScores'),
     new Route('members-area/delete-score','MembersAreaController','deleteScore'),
     new Route('members-area/scores-csv','MembersAreaController','getCSV'),
-    new Route('members-area/get-handicap','MembersAreaController','getHandicap'),
+    new Route('members-area/get-stats','MembersAreaController','getStats'),
     new Route('members-area/delete-all-scores','MembersAreaController','deleteAllScores'),
     new Route('send-reset-pw-email','IndexController','passwordResetEmail'),
     new Route('pw-reset','IndexController','passwordReset'),
     new Route('save-new-password','IndexController','saveNewPassword'),
     new Route('members-area/my-account','MembersAreaController','myAccount'),
     new Route('members-area/delete-account','MembersAreaController','deleteAccount'),
-    new Route('members-area/save-member-data','MembersAreaController','saveMemberData')
+    new Route('members-area/save-member-data','MembersAreaController','saveMemberData'),
+    new Route('members-area/ad-trigger','MembersAreaController','adTrigger')
 );
