@@ -76,4 +76,32 @@ class ServicesController extends ControllerBase
         
         echo json_encode($response);
     }
+    
+    protected function doLogin()
+    {
+        $email = $_REQUEST['email'];
+        $pw = $_REQUEST['pw'];
+        $response = array(
+            'loginStatus' => false
+        );
+        
+        $user = User_Helper::authenticate($email, $pw);
+        if($user){
+            $response['loginStatus'] = true;
+            $response['golferid'] = $user->getId();
+        }
+                
+        echo json_encode($response);
+    }
+    
+    protected function addScore()
+    {
+        $id = $_REQUEST['golferid'];
+        $course = $_REQUEST['course'];
+        $date = $_REQUEST['date'];
+        $score = $_REQUEST['score'];
+        $rating = $_REQUEST['rating'];
+        $slope = $_REQUEST['slope'];
+
+    }
 }
