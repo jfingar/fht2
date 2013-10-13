@@ -128,8 +128,8 @@ class ServicesController extends ControllerBase
         $score->setDate($date);
         $score->setScore($strokes);
         $score->setHolesPlayed(18);
-        $diff = Score_Helper::calculateDifferential($score);
-        $score->setDifferential($diff);
+        Score_Helper::calculateDifferential($score);
+        $score->setDifferential($score->getDifferential());
         
         $errors = Score_Helper::validate($score);
         if(!empty($errors)){
