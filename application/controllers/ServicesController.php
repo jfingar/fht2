@@ -115,7 +115,7 @@ class ServicesController extends ControllerBase
         $id = $_REQUEST['golferid'];
         $course = $_REQUEST['course'];
         $date = $_REQUEST['date'];
-        $score = $_REQUEST['score'];
+        $strokes = $_REQUEST['score'];
         $rating = $_REQUEST['rating'];
         $slope = $_REQUEST['slope'];
         
@@ -125,7 +125,7 @@ class ServicesController extends ControllerBase
         $score->setRating($rating);
         $score->setSlope($slope);
         $score->setDate(date("Y-m-d",strtotime($date)));
-        $score->setScore($score);
+        $score->setScore($strokes);
         $score->setHolesPlayed(18);
         
         $errors = Score_Helper::validate($score);
