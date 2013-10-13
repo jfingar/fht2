@@ -1,8 +1,21 @@
 <?php
+/*
+ * Android Web Service Endpoints:
+ * 
+ *   http://freehandicaptracker.net/android/add-score
+ *   http://freehandicaptracker.net/android/get-user-data
+ *   http://freehandicaptracker.net/android/do-login
+ *   http://freehandicaptracker.net/android/register
+ *   http://freehandicaptracker.net/android/get-user-scores
+ *   http://freehandicaptracker.net/android/edit-score
+ */
 namespace Controllers;
 use Libraries\TinyPHP\ControllerBase;
 use Models\Mappers\Score AS Score_Mapper;
+use Models\Score AS Score_Model;
+use Models\Helpers\Score AS Score_Helper;
 use Models\Mappers\User AS User_Mapper;
+use Models\User AS User_Model;
 use Models\Helpers\User AS User_Helper;
 class ServicesController extends ControllerBase
 {
@@ -96,12 +109,37 @@ class ServicesController extends ControllerBase
     
     protected function addScore()
     {
+        $response = array(
+            'addScoreStatus' => false
+        );
         $id = $_REQUEST['golferid'];
         $course = $_REQUEST['course'];
         $date = $_REQUEST['date'];
         $score = $_REQUEST['score'];
         $rating = $_REQUEST['rating'];
         $slope = $_REQUEST['slope'];
-
+        
+        $score = new Score_Model();
+        $score->setUserId($id);
+        $score->setCourseName($course);
+        $score->setRating($rating);
+        $score->setSlope($slope);
+        $score->setDate(date("Y-m-d",strtotime($date)));
+        $score->setScore($score);
+        $score->setHolesPlayed(18);
+        
+        $errors = Score_Helper::validate($score);
+        if(empty($errors)){
+            foreach($errors as $err){
+                $response[] = $err;
+            }
+        }else{
+            $response['addScoreStatus'] = true;
+        }
+    }
+    
+    protected function editScore()
+    {
+        
     }
 }
