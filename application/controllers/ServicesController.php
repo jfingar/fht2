@@ -17,6 +17,7 @@ use Models\Helpers\Score AS Score_Helper;
 use Models\Mappers\User AS User_Mapper;
 use Models\User AS User_Model;
 use Models\Helpers\User AS User_Helper;
+use \Exception;
 class ServicesController extends ControllerBase
 {
     protected function init()
@@ -135,8 +136,12 @@ class ServicesController extends ControllerBase
             }
         }else{
             $scoreMapper = new Score_Mapper();
-            $scoreMapper->save($score);
-            $response['addScoreStatus'] = true;
+            try{
+                $scoreMapper->save($score);
+                $response['addScoreStatus'] = true;
+            }catch(Exception $e){
+                $response[] = $e->getMessage();
+            }
         }
         echo json_encode($response);
     }
