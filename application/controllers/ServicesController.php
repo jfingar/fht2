@@ -129,11 +129,13 @@ class ServicesController extends ControllerBase
         $score->setHolesPlayed(18);
         
         $errors = Score_Helper::validate($score);
-        if(empty($errors)){
+        if(!empty($errors)){
             foreach($errors as $err){
                 $response[] = $err;
             }
         }else{
+            $scoreMapper = new Score_Mapper();
+            $scoreMapper->save($score);
             $response['addScoreStatus'] = true;
         }
         echo json_encode($response);
