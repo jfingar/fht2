@@ -1,7 +1,9 @@
 <?php
 namespace Controllers;
 use Libraries\TinyPHP\ControllerBase;
-use Models\Mappers\Score;
+use Models\Mappers\Score AS Score_Mapper;
+use Models\Mappers\User AS User_Mapper;
+use Models\Helpers\User AS User_Helper;
 class ServicesController extends ControllerBase
 {
     protected function init()
@@ -13,7 +15,7 @@ class ServicesController extends ControllerBase
     {
         $id = intval($_REQUEST['golferid']);
         $response = array();
-        $scoreMapper = new Score();
+        $scoreMapper = new Score_Mapper();
         $resultSet = $scoreMapper->fetchAll("user_id = :userId ORDER BY date DESC", array(':userId' => $id));
         foreach($resultSet as $score){
             $response[] = array(
@@ -25,6 +27,53 @@ class ServicesController extends ControllerBase
                 'rating' => $score->getRating()
             );
         }
+        echo json_encode($response);
+    }
+    
+    protected function getUserData()
+    {
+        $id = intval($_REQUEST['golferid']);
+        $response = array();
+        
+        $userMapper = new User_Mapper();
+        $user = $userMapper->find($id);
+        
+        $response['handicap'] = User_Helper::getHandicap($user);
+        $response['firstname'] = $user->getFirstName();
+        $response['scoresCount'] = User_Helper::getRoundsPlayedCount($user);
+        $response['avgScore'] = User_Helper::getAverageScore($user);
+        $response['bestScore'] = User_Helper::getBestScore($user);
+        
+        echo json_encode($response);
+    }
+    
+    protected function register()
+    {
+        $response = array();
+        
+        $firstname = $_REQUEST['firstname'];
+        $lastname = $_REQUEST['lastname'];
+        $email = $_REQUEST['email'];
+        $pw1 = $_REQUEST['pw1'];
+        $pw2 = $_REQUEST['pw2'];
+        
+        $user = new User_Model();
+        $user->setFirstName($firstname);
+        $user->setLastName($lastname);
+        $user->setEmail($email);
+        $user->setPassword($pw1);
+        $user->setPassword2($pw2);
+        $user->setSignupType('app');
+        
+        $errors = User_Helper::validate($user);
+        if(!empty($errors)){
+            $userMapper = new User_Mapper();
+            $userMapper->save($user);
+            $response['golferID'] = $user->getId();
+        }else{
+            $response['errors'] = $errors;
+        }
+        
         echo json_encode($response);
     }
 }
