@@ -136,6 +136,7 @@ class ServicesController extends ControllerBase
         }else{
             $response['addScoreStatus'] = true;
         }
+        echo json_encode($response);
     }
     
     protected function editScore()
