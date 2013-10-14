@@ -135,9 +135,7 @@ class ServicesController extends ControllerBase
         
         $errors = Score_Helper::validate($score);
         if(!empty($errors)){
-            foreach($errors as $err){
-                $response[] = $err;
-            }
+            $response = $errors;
         }else{
             $scoreMapper = new Score_Mapper();
             try{
