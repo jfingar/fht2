@@ -52,12 +52,13 @@ class ServicesController extends ControllerBase
         $userMapper = new User_Mapper();
         $user = $userMapper->find($id);
         
-        $response['handicap'] = User_Helper::getHandicap($user);
-        $response['firstname'] = $user->getFirstName();
-        $response['scoresCount'] = User_Helper::getRoundsPlayedCount($user);
-        $response['avgScore'] = User_Helper::getAverageScore($user);
-        $response['bestScore'] = User_Helper::getBestScore($user);
-        
+        if($user){
+            $response['handicap'] = User_Helper::getHandicap($user);
+            $response['firstname'] = $user->getFirstName();
+            $response['scoresCount'] = User_Helper::getRoundsPlayedCount($user);
+            $response['avgScore'] = User_Helper::getAverageScore($user);
+            $response['bestScore'] = User_Helper::getBestScore($user);
+        }
         echo json_encode($response);
     }
     
@@ -150,7 +151,37 @@ class ServicesController extends ControllerBase
     
     protected function editScore()
     {
+        $response = array(
+            'status' => false
+        );
         
+        $id = $_REQUEST['golferid'];
+        $scoreid = $_REQUEST['scoreid'];
+        $course = $_REQUEST['course'];
+        $date = $_REQUEST['date'] ? date("Y-m-d",strtotime($_REQUEST['date'])) : null;
+        $strokes = $_REQUEST['score'];
+        $rating = $_REQUEST['rating'];
+        $slope = $_REQUEST['slope'];
+        
+        $scoreMapper = new Score_Mapper();
+        $score = $scoreMapper->find($scoreid);
+        if($score){
+            $score->setCourseName($course);
+            $score->setDate($date);
+            $score->setScore($strokes);
+            $score->setRating($rating);
+            $score->setSlope($slope);
+            if($score->getUserId() == $id){
+                $errors = Score_Helper::validate($score);
+                if(!empty($errors)){
+                    $response['errors'] = $errors;
+                }else{
+                    $scoreMapper->save($score);
+                    $response['status'] = true;
+                }
+            }
+        }
+        echo json_encode($response);
     }
     
     protected function deleteScore()
