@@ -175,6 +175,9 @@ class ServicesController extends ControllerBase
             $score->setScore($strokes);
             $score->setRating($rating);
             $score->setSlope($slope);
+            if($score->getSlope() && $score->getRating() && $score->getScore()){
+                Score_Helper::calculateDifferential($score);
+            }
             if($score->getUserId() == $id){
                 $errors = Score_Helper::validate($score);
                 if(!empty($errors)){
