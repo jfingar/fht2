@@ -61,6 +61,41 @@ $(document).ready(function(){
     refreshStats();
 });
 
+function initAutocomplete(){
+    $('#add-score-active .score-input.courseName').autocomplete({
+        source : function(request,response){
+            $.ajax({
+                url : '/members-area/autocomplete',
+                data : {searchTerm : request.term},
+                dataType : 'json',
+                type : 'get',
+                success : function(data){
+                    if(data.length){
+                        var suggestionData = [];
+                        for(var i in data){
+                            var courseName = data[i].courseName;
+                            var slope = data[i].slope;
+                            var rating = data[i].rating;
+                            var suggestionObj = {
+                                label : courseName + " ::: Slope " + slope + " ::: Rating " + rating,
+                                value : courseName,
+                                slope : slope,
+                                rating : rating
+                            };
+                            suggestionData.push(suggestionObj);
+                        }
+                        response(suggestionData);
+                    }
+                }
+            });
+        },
+        select : function(event, ui){
+            $("#add-score-active").find('input[name="slope"]').val(ui.item.slope);
+            $("#add-score-active").find('input[name="rating"]').val(ui.item.rating);
+        }
+    });
+}
+
 function initTooltip(){
      $('#differential .tooltip').qtip({
         position : {
@@ -105,6 +140,7 @@ function addScore(){
     var activeRow = $($.parseHTML(addScoreRowActive));
     $('.add-score').replaceWith(activeRow);
     activeRow.find('.score-input.courseName').focus();
+    initAutocomplete();
 }
 
 function sortTable(obj){

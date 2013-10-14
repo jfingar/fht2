@@ -20,7 +20,7 @@
 		<?= $this->content; ?>
 	</div>
     <div id="footer">
-        Please <a href="mailto:jfingar@gmail.com">contact the website owner</a> with any questions or comments regarding usage of this site. Thank you for visiting!
+        Please <a href="mailto:support@freehandicaptracker.net">contact the website owner</a> with any questions or comments regarding usage of this site. Thank you for visiting!
     </div>
 </body>
 </html>

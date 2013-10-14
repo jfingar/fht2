@@ -49,4 +49,21 @@ class Score
         }
         return $errors;
     }
+    
+    public static function autoComplete($userId,$searchTerm)
+    {
+        $dbAdapter = \Libraries\TinyPHP\Db\Adapter::GetMysqlAdapter();
+        $prepared = array(
+            ':searchTerm' => $searchTerm . '%',
+            ':userId' => $userId
+        );
+        $sql = "SELECT DISTINCT courseName, slope, rating
+                FROM freehandicaptracker.scores
+                WHERE courseName LIKE :searchTerm
+                AND user_id = :userId
+                ORDER BY date DESC";
+        $statement = $dbAdapter->prepare($sql);
+        $statement->execute($prepared);
+        return $statement->fetchAll();
+    }
 }

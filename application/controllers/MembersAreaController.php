@@ -178,4 +178,11 @@ class MembersAreaController extends ControllerBase
         $stats['avg'] = User_Helper::getAverageScore($this->user);
         echo json_encode($stats);
     }
+    
+    protected function autoComplete()
+    {
+        $this->isAjax = true;
+        $response = Score_Helper::autoComplete($this->user->getId(),$_GET['searchTerm']);
+        echo json_encode($response);
+    }
 }
