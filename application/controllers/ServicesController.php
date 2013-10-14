@@ -8,6 +8,7 @@
  *   http://freehandicaptracker.net/android/register
  *   http://freehandicaptracker.net/android/get-user-scores
  *   http://freehandicaptracker.net/android/edit-score
+ *   http://freehandicaptracker.net/android/delete-score
  */
 namespace Controllers;
 use Libraries\TinyPHP\ControllerBase;
@@ -81,7 +82,7 @@ class ServicesController extends ControllerBase
         $user->setSignupType('app');
         
         $errors = User_Helper::validate($user);
-        if(!empty($errors)){
+        if(empty($errors)){
             $userMapper = new User_Mapper();
             $userMapper->save($user);
             $response['golferID'] = $user->getId();
