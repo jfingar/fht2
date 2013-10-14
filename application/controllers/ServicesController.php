@@ -130,9 +130,9 @@ class ServicesController extends ControllerBase
         $score->setDate($date);
         $score->setScore($strokes);
         $score->setHolesPlayed(18);
-        Score_Helper::calculateDifferential($score);
         
         if($score->getRating() && $score->getScore() && $score->getSlope()){
+            Score_Helper::calculateDifferential($score);
             $score->setDifferential($score->getDifferential());
         }
         
