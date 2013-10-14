@@ -54,12 +54,25 @@ $(document).ready(function(){
     $('#adModal').dialog({
         title : 'The New FreeHandicapTracker.net',
         modal : true,
-        width : 390,
+        width : 570,
         autoOpen : false
     });
     adTrigger();
     refreshStats();
 });
+
+function initTooltip(){
+     $('#differential .tooltip').qtip({
+        position : {
+            my : 'bottom center',
+            at : 'top center'
+        },
+        content : {
+            title : 'About Handicap Differential',
+            text : $('#differential-tooltip-content-wrapper').html()
+        }
+    });
+}
 
 function adTrigger(){
     $.post('/members-area/ad-trigger',function(response){
@@ -144,14 +157,15 @@ function renderScoresView(){
     scoresTableContainer.find('#scores-table').append(rowsHtml);
     refreshSortArrows();
     refreshNavArrows();
+    initTooltip();
 }
 
 function refreshSortArrows(){
-    scoresTableContainer.find('.sortable img').each(function(){
+    scoresTableContainer.find('.sortable .sortArrows').each(function(){
         $(this).attr('src','/img/sort_neutral_green.png');
     });
     var arrow_src = sortDir == 'DESC' ? '/img/sort_down_green.png' : '/img/sort_up_green.png';
-    scoresTableContainer.find('#' + sortField + ' img').attr('src',arrow_src);
+    scoresTableContainer.find('#' + sortField + ' .sortArrows').attr('src',arrow_src);
 }
 
 function refreshNavArrows(){
@@ -190,6 +204,7 @@ function editScore(obj){
     resetAll();
     var row = obj.parents('tr');
     var i = row.index() - 2;
+    i = (rowsPerPage * (currentPage - 1)) + i;
     row.replaceWith(Mustache.render(editScoreRow,scores[i]));
 }
 
@@ -208,6 +223,7 @@ function cancelSave(obj){
     }else{
         var row = obj.parents('tr');
         var i = row.index() - 2;
+        i = (rowsPerPage * (currentPage - 1)) + i;
         row.replaceWith(Mustache.render(scoreRow,scores[i]));
     }
 }

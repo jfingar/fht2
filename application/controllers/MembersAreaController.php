@@ -32,6 +32,8 @@ class MembersAreaController extends ControllerBase
         $this->title = "Free Handicap Tracker - The Free and Easy Way to Track Your Golf Handicap Online!";
         $this->addJavascript('/js/mustache.js');
         $this->addJavascript('/js/view-scores.js');
+        $this->addJavascript('/js/jquery.qtip.min.js');
+        $this->addStylesheet('/css/jquery.qtip.min.css');
     }
     
     protected function myAccount()

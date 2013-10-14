@@ -36,11 +36,14 @@
 </div>
 <div id="adModal">
     <div id="adHeadline">
-        <p>
+        <p class="bottomMargin">
             Welcome to the new and improved FreeHandicapTracker.net website!
         </p>
+        <p class="bottomMargin">
+           Please feel free to <a href="mailto:support@freehandicaptracker.net">Contact the Webmaster by emailing support@freehandicaptracker.net</a> with any questions, or to report any bugs.
+        </p>
         <p>
-            Please enjoy the new layout and features.
+            Thank you for your continued use of this free service, and don't forget to spread the word!
         </p>
     </div>
     <div id="popupAdContainer">

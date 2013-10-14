@@ -5,16 +5,24 @@
 
 <script type="text/template" id="scores-table-headings-template">
     <tr class="scores-table-headings">
-        <th class="sortable" id="courseName">Course Name <img src="/img/sort_neutral_green.png" /></th>
-        <th class="sortable" id="date">Date Played <img src="/img/sort_down_green.png" /></th>
-        <th class="sortable" id="score">Score <img src="/img/sort_neutral_green.png" /></th>
-        <th class="sortable" id="slope">Slope <img src="/img/sort_neutral_green.png" /></th>
-        <th class="sortable" id="rating">Rating <img src="/img/sort_neutral_green.png" /></th>
-        <th class="sortable" id="differential">Differential <img src="/img/sort_neutral_green.png" /></th>
+        <th class="sortable" id="courseName">Course Name <img class="sortArrows" src="/img/sort_neutral_green.png" /></th>
+        <th class="sortable" id="date">Date Played <img class="sortArrows" src="/img/sort_down_green.png" /></th>
+        <th class="sortable" id="score">Score <img class="sortArrows" src="/img/sort_neutral_green.png" /></th>
+        <th class="sortable" id="slope">Slope <img class="sortArrows" src="/img/sort_neutral_green.png" /></th>
+        <th class="sortable" id="rating">Rating <img class="sortArrows" src="/img/sort_neutral_green.png" /></th>
+        <th class="sortable" id="differential"><img class="tooltip" src="/img/information.png" alt="" /> Differential <img class="sortArrows" src="/img/sort_neutral_green.png" /></th>
         <th class="sortable" id="holesPlayed">Holes Played <img src="/img/sort_neutral_green.png" /></th>
-        <th class="sortable" id="tees">Tees <img src="/img/sort_neutral_green.png" /></th>
+        <th class="sortable" id="tees">Tees <img class="sortArrows" src="/img/sort_neutral_green.png" /></th>
         <th colspan="2" style="width: 58px;">&nbsp;</th>
     </tr>
+</script>
+
+<script type="text/template" id="differential-tooltip-content-wrapper">
+    <div id="differential-tooltip-content" style="font-size: 16px; line-height: 22px;">
+        <div style="margin-bottom: 10px;">Differentials are used to calculate your handicap index. They are a measure of how well you played based on your score relative to par, as well as the difficulty of the course (slope &amp; rating)</div>
+        <div style="margin-bottom: 10px;">Your handicap differential is calculated using the following formula:</div>
+        <div style="font-weight: bold;">((score - rating) * 113) / slope</div>
+    </div>
 </script>
 
 <script type="text/template" id="add-score-template">

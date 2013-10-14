@@ -298,7 +298,6 @@
 
 #adHeadline{
     background-color: #EFEFEF;
-    font-weight: bold;
     padding: 10px;
     margin-bottom: 10px;
 }
@@ -316,4 +315,8 @@
 #long-ad{
     margin-bottom: 15px;
     width: auto;
+}
+
+p.bottomMargin{
+    margin-bottom: 15px;
 }
