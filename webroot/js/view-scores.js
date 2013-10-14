@@ -225,6 +225,7 @@ function refreshNavArrows(){
 
 function deleteScore(obj){
     var i = obj.parents('tr').index() - 2;
+    i = (rowsPerPage * (currentPage - 1)) + i;
     var cfmMsg = 'Are you sure you want to delete this score?\r\n(' + scores[i].score + ' at ' + scores[i].courseName + ' on ' + scores[i].formattedDate + ')';
     var proceed = confirm(cfmMsg);
     if(proceed){
