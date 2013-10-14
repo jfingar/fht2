@@ -70,3 +70,15 @@
     </div>
 </div>
 <div class="clear"></div>
+<hr />
+<div id="golf-headlines-container">
+    <h3>PGA Tour News and Updates</h3>
+    <div id="golf-channel-rss">
+        <img src="img/loader.gif" alt="Loading..." />
+    </div>
+</div>
+<div id="twitter-feed">
+	<a class="twitter-timeline"  href="https://twitter.com/jason0781/pga-tour-players" data-widget-id="254962210307182593">Tweets from @jason0781/pga-tour-players</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div>
+<div class="clear"></div>

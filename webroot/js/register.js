@@ -1,5 +1,6 @@
 $(document).ready(function(){
     initRegister();
+    initRssFeed("http://www.thegolfchannel.com/rss/?FeedID=NewsArchive",'golf-channel-rss');
 });
 
 function initRegister(){
