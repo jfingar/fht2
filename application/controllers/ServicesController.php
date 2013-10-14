@@ -152,4 +152,17 @@ class ServicesController extends ControllerBase
     {
         
     }
+    
+    protected function deleteScore()
+    {
+        $golferid = $_REQUEST['golferid'];
+        $scoreid = $_REQUEST['scoreid'];
+        $scoreMapper = new Score_Mapper();
+        $userMapper = new User_Mapper();
+        $user = $userMapper->find($golferid);
+        $score = $scoreMapper->getUserId();
+        if($user->getId() == $score->getUserId()){
+            $scoreMapper->delete($score);
+        }
+    }
 }

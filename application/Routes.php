@@ -32,4 +32,5 @@ $aRoutes = array(
     new Route('android/do-login','ServicesController','doLogin'),
     new Route('android/add-score','ServicesController','addScore'),
     new Route('android/edit-score','ServicesController','editScore'),
+    new Route('android/delete-score','ServicesController','deleteScore')
 );
