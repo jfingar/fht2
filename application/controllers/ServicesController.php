@@ -160,7 +160,7 @@ class ServicesController extends ControllerBase
         $scoreMapper = new Score_Mapper();
         $userMapper = new User_Mapper();
         $user = $userMapper->find($golferid);
-        $score = $scoreMapper->getUserId();
+        $score = $scoreMapper->find($scoreid);
         if($user->getId() == $score->getUserId()){
             $scoreMapper->delete($score);
         }
