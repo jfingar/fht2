@@ -278,24 +278,6 @@
     display: block;
 }
 
-#show-update-pw, #delete-account{
-    cursor: pointer;
-    color: blue;
-    font-size: 16px;
-}
-
-#show-update-pw{
-    margin-right: 20px;
-}
-
-#member-data-submit{
-    display: none;
-}
-
-#more-account-opts{
-    margin-top: 15px;
-}
-
 #adHeadline{
     background-color: #EFEFEF;
     padding: 10px;
@@ -319,4 +301,30 @@
 
 p.bottomMargin{
     margin-bottom: 15px;
+}
+
+.changePwLinkContainer, .deleteAcctLinkContainer{
+    width: 190px;
+    padding: 5px;
+    background-color: #666;
+    box-shadow: 0px 0px 10px #999;
+    margin-top: 15px;
+    color: #FFF;
+    cursor: pointer;
+}
+
+.changePwContainer{
+    display: none;
+    background-color: #CCC;
+    padding: 5px;
+    margin-top: 10px;
+    float: left;
+}
+
+.changePwContainer label{
+    margin-top: 0px;
+}
+
+.changePwContainer .text-input-1{
+    width: 183px;
 }

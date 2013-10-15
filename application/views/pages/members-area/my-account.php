@@ -20,7 +20,27 @@
             <label>Email Address (Login)</label>
             <input name="email" id="email" type="text" class="text-input-1" value="<?= $this->user->getEmail(); ?>" />
         </div>
-        <div id="loginSubmitContainer" class="submitContainer floatLeft" style="padding: 23px 0px 0px 55px;">
+        <div class="clear"></div>
+        <div class="floatLeft changePwLinkContainer">
+            <a id="show-update-pw">CHANGE PASSWORD</a>
+        </div>
+        <div class="floatLeft rightCol deleteAcctLinkContainer">
+            <a id="delete-account">DELETE ACCOUNT</a>
+        </div>
+        <div class="clear"></div>
+        <div class="changePwContainer">
+            <div class="floatLeft">
+                <label>Enter a new password</label>
+                <input class="text-input-1" id="pw1" name="pw1" type="password" value="" autocomplete="off" />
+            </div>
+            <div class="floatLeft rightCol">
+                <label>Re-Enter new password</label>
+                <input class="text-input-1" id="pw2" name="pw2" type="password" value="" autocomplete="off" />
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+        <div class="submitContainer">
             <input type="submit" value="Save Changes" id="member-data-submit" />
         </div>
         <div class="clear"></div>
@@ -28,9 +48,4 @@
         </div>
         <div class="clear"></div>
     </form>
-</div>
-<div class="clear"></div>
-<div id="more-account-opts">
-    <a id="show-update-pw">CHANGE PASSWORD</a>
-    <a id="delete-account">DELETE ACCOUNT</a>
 </div>

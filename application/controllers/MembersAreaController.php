@@ -148,10 +148,21 @@ class MembersAreaController extends ControllerBase
         $user->setFirstName($_POST['firstName']);
         $user->setLastName($_POST['lastName']);
         $user->setEmail($_POST['email']);
+        
+        $updatePW = false;
+        if(trim($_POST['pw1']) || trim($_POST['pw2'])){
+            $updatePW = true;
+            $user->setPassword($_POST['pw1']);
+            $user->setPassword2($_POST['pw2']);
+        }
 
-        $errors = User_Helper::validate($user);
+        $errors = User_Helper::validate($user,$updatePW);
         if(empty($errors)){
-            $userMapper->save($user);
+            try{
+                User_Helper::updateAccountInfo($user,$updatePW);
+            }catch(Exception $e){
+                $errors[] = Utils::errMsgHandler($e);
+            }
         }
         echo json_encode($errors);
     }
@@ -184,5 +195,11 @@ class MembersAreaController extends ControllerBase
         $this->isAjax = true;
         $response = Score_Helper::autoComplete($this->user->getId(),$_GET['searchTerm']);
         echo json_encode($response);
+    }
+    
+    protected function emailTest()
+    {
+        $this->suppressLayout = true;
+        $this->view = '/emails/updatedSite';
     }
 }

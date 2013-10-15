@@ -4,6 +4,7 @@ use Models\User AS User_Model;
 use Models\Mappers\User AS User_Mapper;
 use Models\Mappers\Score AS Score_Mapper;
 use Libraries\TinyPHP\Validate\EmailAddress AS EmailValidator;
+use \Libraries\TinyPHP\Db\Adapter;
 class User
 {
     public static function getHandicap(User_Model $user)
@@ -80,7 +81,7 @@ class User
     * Return an array of errors.
     * If the return array is empty, we can assume that the user object is valid.
     */
-    public static function validate(User_Model $user)
+    public static function validate(User_Model $user,$pwUpdate = false)
     {
         $errors = array();
         $isUpdate = false;
@@ -112,13 +113,15 @@ class User
                 $errors[] = 'Please enter a password into Password Field 2';
             }
         }
-        
-        if($user->getPassword() != $user->getPassword2()){
-            $errors[] = 'Password Field 1 and Password Field 2 do not match.';
+        if(!$isUpdate || ($isUpdate && $pwUpdate)){
+            // if this is a new user, or a current user is updating their password, we need to make sure input1 and input2 match.
+            if($user->getPassword() != $user->getPassword2()){
+                $errors[] = 'Password Field 1 and Password Field 2 do not match.';
+            }
         }
         
         if(self::emailExists($user->getEmail(),$user->getId())){
-            $errors[] = 'That Email Address already has an active account. Forgot Password?';
+            $errors[] = 'That Email Address already has an active account.';
         }
                 
         return $errors;
@@ -174,5 +177,30 @@ class User
             }
         }
         return $scoreIds;
+    }
+    
+    public static function updateAccountInfo(User_Model $user,$pwUpdate)
+    {
+        if($pwUpdate){
+            // we are updating all properties, go ahead and use the normal mapper save method
+            $userMapper = new User_Mapper;
+            $userMapper->save($user);
+        }else{
+            // we need to exclude updating the users password, so need a custom update call
+            $dbAdapter = Adapter::GetMysqlAdapter();
+            $prepared = array(
+                ':id' => $user->getId(),
+                ':firstName' => $user->getFirstName(),
+                ':lastName' => $user->getLastName(),
+                ':email' => $user->getEmail()
+            );
+            $sql = "UPDATE users
+                    SET firstName = :firstName,
+                        lastName = :lastName,
+                        email = :email
+                    WHERE id = :id";
+            $statement = $dbAdapter->prepare($sql);
+            $statement->execute($prepared);
+        }
     }
 }
