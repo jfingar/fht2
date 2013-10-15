@@ -17,14 +17,18 @@ class Application
     public static $env;
     public static $config = array();
 
-    public static function run()
+    public static function run($defaultEnvironment = 'production',$isCLI = false)
     {
-        self::$env = getenv("ENV") ? getenv("ENV") : 'production';
-        self::initSession();
+        self::$env = getenv("ENV") ? getenv("ENV") : $defaultEnvironment;
+        if(!$isCLI){
+            self::initSession();
+        }
         self::initSwiftMailer();
         self::initAutoload();
         self::initConfig();
-        self::startRouting();
+        if(!$isCLI){
+            self::startRouting();
+        }
     }
     
     private static function initSession()
@@ -97,10 +101,10 @@ class Application
         $sections = array_keys($fullConf);
         foreach($sections as $section){
             if(strpos($section,':') !== false){
-                $childSection = substr(strstr($section,':'),1);
-                $parentSection = strstr($section,':',true);
+                $parentSection = substr(strstr($section,':'),1);
+                $childSection = strstr($section,':',true);
                 if($env == $childSection){
-                    $key = $parentSection . ':' . $childSection;
+                    $key = $childSection . ':' . $parentSection;
                     array_push(self::$config,$fullConf[$key]);
                     self::buildConfig($parentSection);
                 }

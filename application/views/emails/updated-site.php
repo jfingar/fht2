@@ -5,7 +5,7 @@
     <body>
         <div style="width: 600px;font-family: 'Arial','Helvetica',sans-serif">
             <img src="/img/e-mail-header.jpg" alt="FreeHandicapTracker.net" />
-            <div style="margin: 10px 0px 10px 0px;">Dear FreeHandicapTracker.net user,</div>
+            <div style="margin: 10px 0px 10px 0px;">Dear <?= $this->user->getFirstName(); ?>,</div>
             <div>
                 The new <a href="http://www.freehandicaptracker.net">FreeHandicapTracker</a> site was just launched today. The site is still free, and offers a lot of new features and improvements.
             </div>
