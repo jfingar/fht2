@@ -32,7 +32,7 @@ class CliController extends ControllerBase
                 $mail = new Mail();
                 $mail->setSubject($emailSubject);
                 $mail->setFrom("support@freehandicaptracker.net");
-                $mail->addRecipient($user->getEmail());
+                $mail->addRecipient($userEmailAddress);
                 $mail->setBody($emailContent);
                 $mail->send();
                 echo "mail sent to: " . $userEmailAddress . "\r\n";
