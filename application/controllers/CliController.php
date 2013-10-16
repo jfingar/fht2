@@ -14,7 +14,7 @@ class CliController extends ControllerBase
         $this->suppressView = true;
     }
     public function UpdatedSiteEmail()
-    {        
+    {
         $userMapper = new User_Mapper();
         
         // for testing purposes, limit query to my 2 users

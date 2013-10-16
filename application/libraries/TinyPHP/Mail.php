@@ -2,6 +2,7 @@
 namespace Libraries\TinyPHP;
 use \Swift_Message;
 use \Swift_SmtpTransport;
+use \Swift_SendmailTransport;
 use \Swift_Mailer;
 use \Swift_Attachment;
 class Mail
@@ -12,6 +13,7 @@ class Mail
     private $subject;
     private $body;
     private $attachments = array();
+    private $transportType = 'sendmail';
     private static $_smtpHost;
     private static $_smtpPort;
     private static $_smtpUsername;
@@ -47,6 +49,11 @@ class Mail
         $this->attachments[] = $attachmentPath;
     }
     
+    public function setTransportType($transportType)
+    {
+        $this->transportType = $transportType;
+    }
+    
     public function send()
     {
         $message = Swift_Message::newInstance($this->subject);
@@ -65,8 +72,15 @@ class Mail
         $message->setBody($this->body,$this->type);
         
         // Smtp
-        self::getSmtpCredentials();
-        $transport = Swift_SmtpTransport::newInstance(self::$_smtpHost,self::$_smtpPort)->setUsername(self::$_smtpUsername)->setPassword(self::$_smtpPassword);
+        if($this->transportType == 'smtp'){
+            self::getSmtpCredentials();
+            $transport = Swift_SmtpTransport::newInstance(self::$_smtpHost,self::$_smtpPort)->setUsername(self::$_smtpUsername)->setPassword(self::$_smtpPassword);
+        }
+        
+        // sendmail
+        if($this->transportType == 'sendmail'){
+            $transport = Swift_SendmailTransport::newInstance();
+        }
         $mailer = Swift_Mailer::newInstance($transport);
         $result = $mailer->send($message);
         return $result;
