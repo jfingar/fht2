@@ -5,6 +5,18 @@
     <div class="clear"></div>
 </div>
 
+<div id="long-ad">
+    <script type="text/javascript"><!--
+        google_ad_client = "ca-pub-0606881367275935";
+        /* long-ad */
+        google_ad_slot = "5764990759";
+        google_ad_width = 970;
+        google_ad_height = 90;
+        //-->
+    </script>
+    <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+</div>
+
 <div class="form-wrapper-container twoColumn">
     <form class="standardForm" id="memberDataForm" action="/members-area/update-member-data" method="post">
         <div class="form-heading">Update Your Information</div>
@@ -48,4 +60,16 @@
         </div>
         <div class="clear"></div>
     </form>
+</div>
+
+<div id="ad-right">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- my-account page-right -->
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:336px;height:280px"
+         data-ad-client="ca-pub-0606881367275935"
+         data-ad-slot="5112295152"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
 </div>

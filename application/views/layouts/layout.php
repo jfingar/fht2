@@ -16,8 +16,9 @@
         </h2>
     </div>
 	<div id="container">
-        <?= $this->returnView('partials/nav-menu'); ?>
-		<?= $this->content; ?>
+            <?= $this->returnView('partials/nav-menu'); ?>
+            <?= $this->content; ?>
+            <div class="clear"></div>
 	</div>
     <div id="footer">
         Please <a href="mailto:support@freehandicaptracker.net">contact the website owner</a> with any questions or comments regarding usage of this site. Thank you for visiting!
