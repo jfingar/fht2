@@ -4,7 +4,7 @@ use Libraries\TinyPHP\ControllerBase;
 use Models\Mappers\User AS User_Mapper;
 use Libraries\TinyPHP\Validate\EmailAddress AS EmailValidator;
 use Libraries\TinyPHP\Mail;
-
+use \Exception;
 class CliController extends ControllerBase
 {
     public function init()
