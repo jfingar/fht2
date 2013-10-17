@@ -20,7 +20,8 @@ class CliController extends ControllerBase
         //$whereClause = "id IN(1,2949)";
         
         $allUsers = $userMapper->fetchAll();
-        $remainingUsers = array_slice($allUsers,21);
+        //TODO: research out of memory error. email sent to first 58 users.
+        $remainingUsers = array_slice($allUsers,58);
         foreach($remainingUsers as $user){
             $this->user = $user;
             $userEmailAddress = $user->getEmail();
