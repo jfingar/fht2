@@ -20,7 +20,6 @@ class CliController extends ControllerBase
         //$whereClause = "id IN(1,2949)";
         
         $allUsers = $userMapper->fetchAll();
-        die(print_r($allUsers));
         foreach($allUsers as $user){
             $this->user = $user;
             $userEmailAddress = $user->getEmail();
@@ -36,11 +35,10 @@ class CliController extends ControllerBase
                 $mail->setBody($emailContent);
                 $mail->send();
                 echo "mail sent to: " . $userEmailAddress . "\r\n";
+                sleep(5);
             }else{
                 echo "invalid Email Address: " . $userEmailAddress . "\r\n";
             }
-            
-            sleep(5);
         }
     }
 }
