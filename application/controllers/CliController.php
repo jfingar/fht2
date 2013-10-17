@@ -20,8 +20,7 @@ class CliController extends ControllerBase
         //$whereClause = "id IN(1,2949)";
         
         $allUsers = $userMapper->fetchAll();
-        //TODO: research out of memory error. email sent to first 58 users.
-        $remainingUsers = array_slice($allUsers,58);
+        $remainingUsers = array_slice($allUsers,65);
         foreach($remainingUsers as $user){
             $this->user = $user;
             $userEmailAddress = $user->getEmail();
@@ -35,12 +34,8 @@ class CliController extends ControllerBase
                 $mail->setFrom("support@freehandicaptracker.net");
                 $mail->addRecipient($userEmailAddress);
                 $mail->setBody($emailContent);
-                try{
-                    $mail->send();
-                    echo "mail sent to: " . $userEmailAddress . "\r\n";
-                }catch(Exception $e){
-                    echo "Exception occured while trying to send email to " . $userEmailAddress;
-                }
+                $mail->send();
+                echo "mail sent to: " . $userEmailAddress . "\r\n";
                 sleep(5);
             }else{
                 echo "invalid Email Address: " . $userEmailAddress . "\r\n";
