@@ -1,5 +1,6 @@
 <?php
 namespace Libraries\TinyPHP;
+use \PHPMailer;
 class Mail
 {
     private $recipients = array();
