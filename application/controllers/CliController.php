@@ -16,7 +16,7 @@ class CliController extends ControllerBase
     {
         $userMapper = new User_Mapper();
         $allUsers = $userMapper->fetchAll();
-        $remainingUsers = array_slice($allUsers,151);
+        $remainingUsers = array_slice($allUsers,176);
         foreach($remainingUsers as $user){
             $this->user = $user;
             $userEmailAddress = $user->getEmail();
