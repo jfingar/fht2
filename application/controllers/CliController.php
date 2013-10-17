@@ -29,7 +29,7 @@ class CliController extends ControllerBase
                 $emailSubject = "FreeHandicapTracker.net new and improved site";
                 $mail = new Mail();
                 $mail->setSubject($emailSubject);
-                $mail->setFrom("support@freehandicaptracker.net");
+                $mail->setFrom("support@freehandicaptracker.net","FreeHandicapTracker");
                 $mail->addRecipient($userEmailAddress);
                 $mail->setBody($emailContent);
                 try{
