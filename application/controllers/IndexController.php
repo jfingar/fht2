@@ -16,7 +16,7 @@ class IndexController extends ControllerBase
             header("Location: members-area/view-scores");
         }
         $this->title = "Free Handicap Tracker - The Free and Easy Way to Track Your Golf Handicap Online!";
-        $this->addJavascript('js/index.js');
+        $this->addJavascript('js/index.min.js');
     }
 
     protected function passwordResetEmail()
@@ -64,7 +64,7 @@ class IndexController extends ControllerBase
     protected function passwordReset()
     {
         $this->title = "Free Handicap Tracker - Reset Your Password";
-        $this->addJavascript('/js/pw-reset.js');
+        $this->addJavascript('/js/pw-reset.min.js');
         $email = $_GET['email'];
         $hash = $_GET['hash'];
         if(!PasswordReset_Helper::Validate($email,$hash)){

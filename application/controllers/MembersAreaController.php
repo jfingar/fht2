@@ -30,8 +30,8 @@ class MembersAreaController extends ControllerBase
     protected function viewScores()
     {
         $this->title = "Free Handicap Tracker - The Free and Easy Way to Track Your Golf Handicap Online!";
-        $this->addJavascript('/js/mustache.js');
-        $this->addJavascript('/js/view-scores.js');
+        $this->addJavascript('/js/mustache.min.js');
+        $this->addJavascript('/js/view-scores.min.js');
         $this->addJavascript('/js/jquery.qtip.min.js');
         $this->addStylesheet('/css/jquery.qtip.min.css');
     }
@@ -39,7 +39,7 @@ class MembersAreaController extends ControllerBase
     protected function myAccount()
     {
         $this->title = "Free Handicap Tracker - Account Settings";
-        $this->addJavascript('/js/my-account.js');
+        $this->addJavascript('/js/my-account.min.js');
     }
     
     protected function adTrigger()

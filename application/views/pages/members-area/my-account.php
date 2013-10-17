@@ -70,6 +70,6 @@
          data-ad-client="ca-pub-0606881367275935"
          data-ad-slot="5112295152"></ins>
     <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
+    (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
 </div>

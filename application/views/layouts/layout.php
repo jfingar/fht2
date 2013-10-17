@@ -3,6 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title><?= $this->title; ?></title>
+        <meta name="description" content="Free Handicap Tracker is the free and easy way to track your golf scores and golf handicap online! Register for a free account today." />
 	<?= $this->getJavascripts(); ?>
 	<?= $this->getStylesheets(); ?>
         <script type="text/javascript">var switchTo5x=true;</script>
