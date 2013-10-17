@@ -23,7 +23,7 @@ class Application
         if(!$isCLI){
             self::initSession();
         }
-        self::initSwiftMailer();
+        self::initPHPMailer();
         self::initAutoload();
         self::initConfig();
         if(!$isCLI){
@@ -38,9 +38,9 @@ class Application
         }
     }
     
-    private static function initSwiftMailer()
+    private static function initPHPMailer()
     {
-        $swiftMailerIncludeFilePath = self::$APP_ROOT_DIR . '../libraries/swiftmailer/lib/swift_required.php';
+        $swiftMailerIncludeFilePath = self::$APP_ROOT_DIR . '../libraries/PHPMailer/class.phpmailer.php';
         if(file_exists($swiftMailerIncludeFilePath)){
             require_once $swiftMailerIncludeFilePath;
         }

@@ -1,14 +1,10 @@
 <?php
 namespace Libraries\TinyPHP;
-use \Swift_Message;
-use \Swift_SmtpTransport;
-use \Swift_SendmailTransport;
-use \Swift_Mailer;
-use \Swift_Attachment;
 class Mail
 {
     private $recipients = array();
     private $from = '';
+    private $fromDisplay = '';
     private $type = 'text/html';
     private $subject;
     private $body;
@@ -24,9 +20,12 @@ class Mail
         $this->recipients[] = $recipientEmail;
     }
     
-    public function setFrom($fromEmail)
+    public function setFrom($fromEmail,$displayName = null)
     {
         $this->from = $fromEmail;
+        if($displayName){
+            $this->fromDisplay = $displayName;
+        }
     }
     
     public function setType($type)
@@ -56,39 +55,27 @@ class Mail
     
     public function send()
     {
-        $message = Swift_Message::newInstance($this->subject);
-        $message->setFrom($this->from);
+        $mail = new PHPMailer();
+        $mail->SetFrom($this->from,$this->fromDisplay);
         if(empty($this->recipients)){
             throw new Exception("Please add at least 1 recipient!");
         }
         foreach($this->recipients as $recipientEmail){
-            $message->addTo($recipientEmail);
+            $mail->AddAddress($recipientEmail);
         }
+        $mail->Subject = $this->subject;
+        $mail->MsgHTML($this->body);
+        
         if(!empty($this->attachments)){
             foreach($this->attachments as $attachmentPath){
-                $message->attach(Swift_Attachment::fromPath($attachmentPath));
+               $mail->AddAttachment($attachmentPath);
             }
         }
-        $message->setBody($this->body,$this->type);
-        
-        // Smtp
-        if($this->transportType == 'smtp'){
-            self::getSmtpCredentials();
-            $transport = Swift_SmtpTransport::newInstance(self::$_smtpHost,self::$_smtpPort)->setUsername(self::$_smtpUsername)->setPassword(self::$_smtpPassword);
+        if(!$mail->Send()){
+            throw new Exception("Mailer Error: " . $mail->ErrorInfo);
+        }else{
+            return true;
         }
-        
-        // sendmail
-        if($this->transportType == 'sendmail'){
-            $transport = Swift_SendmailTransport::newInstance();
-        }
-        $mailer = Swift_Mailer::newInstance($transport);
-        try{
-            $result = $mailer->send($message);
-        }catch(Exception $e){
-            $toString = implode(", ",$this->recipients);
-            $result = 'Error sending mail to ' . $toString . ': ' . $e->getMessage();
-        }
-        return $result;
     }
     
     private static function getSmtpCredentials()

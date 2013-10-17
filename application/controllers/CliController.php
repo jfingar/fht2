@@ -14,10 +14,13 @@ class CliController extends ControllerBase
     }
     public function UpdatedSiteEmail()
     {
+        // last mail sent to: marcv68@yahoo.com
+
         $userMapper = new User_Mapper();
-        $allUsers = $userMapper->fetchAll();
-        $remainingUsers = array_slice($allUsers,100);
-        foreach($remainingUsers as $user){
+        $allUsers = $userMapper->fetchAll("id = 1");
+       //  $remainingUsers = array_slice($allUsers,???);
+        die(print_r($allUsers));
+        foreach($allUsers as $user){
             $this->user = $user;
             $userEmailAddress = $user->getEmail();
             $emailValidator = new EmailValidator();
