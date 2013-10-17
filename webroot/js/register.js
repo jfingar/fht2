@@ -1,6 +1,14 @@
 $(document).ready(function(){
     initRegister();
     initRssFeed("http://www.thegolfchannel.com/rss/?FeedID=NewsArchive",'golf-channel-rss');
+    $('#tandc-modal').dialog({
+        autoOpen : false,
+        modal : true,
+        width : 400
+    });
+    $('#tancd-link').click(function(){
+        $('#tandc-modal').dialog('open');
+    });
 });
 
 function initRegister(){

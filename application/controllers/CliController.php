@@ -4,7 +4,7 @@ use Libraries\TinyPHP\ControllerBase;
 use Models\Mappers\User AS User_Mapper;
 use Libraries\TinyPHP\Validate\EmailAddress AS EmailValidator;
 use Libraries\TinyPHP\Mail;
-
+use \Exception;
 class CliController extends ControllerBase
 {
     public function init()
@@ -14,12 +14,10 @@ class CliController extends ControllerBase
     }
     public function UpdatedSiteEmail()
     {
-        // last mail sent to: marcv68@yahoo.com
-
         $userMapper = new User_Mapper();
-        $allUsers = $userMapper->fetchAll("id = 1");
-       //  $remainingUsers = array_slice($allUsers,???);
-        foreach($allUsers as $user){
+        $allUsers = $userMapper->fetchAll();
+        $remainingUsers = array_slice($allUsers,333);
+        foreach($remainingUsers as $user){
             $this->user = $user;
             $userEmailAddress = $user->getEmail();
             $emailValidator = new EmailValidator();
@@ -29,15 +27,15 @@ class CliController extends ControllerBase
                 $emailSubject = "FreeHandicapTracker.net new and improved site";
                 $mail = new Mail();
                 $mail->setSubject($emailSubject);
-                $mail->setFrom("support@freehandicaptracker.net");
+                $mail->setFrom("support@freehandicaptracker.net","FreeHandicapTracker");
                 $mail->addRecipient($userEmailAddress);
                 $mail->setBody($emailContent);
                 try{
                     $mail->send();
+                    echo "mail sent to: " . $userEmailAddress . "\r\n";
                 }catch(Exception $e){
                     echo $e->getMessage();
                 }
-                echo "mail sent to: " . $userEmailAddress . "\r\n";
                 sleep(5);
             }else{
                 echo "invalid Email Address: " . $userEmailAddress . "\r\n";

@@ -326,3 +326,12 @@ h1{
 .pw-reset-fail{
     font-size: 18px;
 }
+
+#tancd-link{
+    color: blue;
+    cursor: pointer;
+    display: block;
+    padding: 3px;
+    background-color: #FFF;
+    box-shadow: 0px 0px 5px #888;
+}
