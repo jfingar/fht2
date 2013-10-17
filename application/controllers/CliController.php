@@ -20,7 +20,8 @@ class CliController extends ControllerBase
         //$whereClause = "id IN(1,2949)";
         
         $allUsers = $userMapper->fetchAll();
-        foreach($allUsers as $user){
+        $remainingUsers = array_slice($allUsers,21);
+        foreach($remainingUsers as $user){
             $this->user = $user;
             $userEmailAddress = $user->getEmail();
             $emailValidator = new EmailValidator();
@@ -33,8 +34,12 @@ class CliController extends ControllerBase
                 $mail->setFrom("support@freehandicaptracker.net");
                 $mail->addRecipient($userEmailAddress);
                 $mail->setBody($emailContent);
-                $mail->send();
-                echo "mail sent to: " . $userEmailAddress . "\r\n";
+                try{
+                    $mail->send();
+                    echo "mail sent to: " . $userEmailAddress . "\r\n";
+                }catch(Exception $e){
+                    echo "Exception occured while trying to send email to " . $userEmailAddress;
+                }
                 sleep(5);
             }else{
                 echo "invalid Email Address: " . $userEmailAddress . "\r\n";
