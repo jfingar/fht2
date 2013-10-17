@@ -14,11 +14,9 @@ class CliController extends ControllerBase
     }
     public function UpdatedSiteEmail()
     {
-        // last mail sent to: marcv68@yahoo.com
-
         $userMapper = new User_Mapper();
         $allUsers = $userMapper->fetchAll();
-        $remainingUsers = array_slice($allUsers,104);
+        $remainingUsers = array_slice($allUsers,151);
         foreach($remainingUsers as $user){
             $this->user = $user;
             $userEmailAddress = $user->getEmail();
@@ -34,10 +32,10 @@ class CliController extends ControllerBase
                 $mail->setBody($emailContent);
                 try{
                     $mail->send();
+                    echo "mail sent to: " . $userEmailAddress . "\r\n";
                 }catch(Exception $e){
                     echo $e->getMessage();
                 }
-                echo "mail sent to: " . $userEmailAddress . "\r\n";
                 sleep(5);
             }else{
                 echo "invalid Email Address: " . $userEmailAddress . "\r\n";

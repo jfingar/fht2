@@ -1,6 +1,7 @@
 <?php
 namespace Libraries\TinyPHP;
 use \PHPMailer;
+use \Exception;
 class Mail
 {
     private $recipients = array();
