@@ -17,9 +17,10 @@ class CliController extends ControllerBase
         $userMapper = new User_Mapper();
         
         // for testing purposes, limit query to my 2 users
-        $whereClause = "id IN(1,2949)";
+        //$whereClause = "id IN(1,2949)";
         
-        $allUsers = $userMapper->fetchAll($whereClause);
+        $allUsers = $userMapper->fetchAll();
+        die(print_r($allUsers));
         foreach($allUsers as $user){
             $this->user = $user;
             $userEmailAddress = $user->getEmail();
