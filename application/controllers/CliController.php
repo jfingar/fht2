@@ -15,12 +15,8 @@ class CliController extends ControllerBase
     public function UpdatedSiteEmail()
     {
         $userMapper = new User_Mapper();
-        
-        // for testing purposes, limit query to my 2 users
-        //$whereClause = "id IN(1,2949)";
-        
         $allUsers = $userMapper->fetchAll();
-        $remainingUsers = array_slice($allUsers,65);
+        $remainingUsers = array_slice($allUsers,100);
         foreach($remainingUsers as $user){
             $this->user = $user;
             $userEmailAddress = $user->getEmail();

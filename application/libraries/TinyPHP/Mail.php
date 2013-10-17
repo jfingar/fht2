@@ -82,7 +82,12 @@ class Mail
             $transport = Swift_SendmailTransport::newInstance();
         }
         $mailer = Swift_Mailer::newInstance($transport);
-        $result = $mailer->send($message);
+        try{
+            $result = $mailer->send($message);
+        }catch(Exception $e){
+            $toString = implode(", ",$this->recipients);
+            $result = 'Error sending mail to ' . $toString . ': ' . $e->getMessage();
+        }
         return $result;
     }
     
