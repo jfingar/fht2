@@ -19,7 +19,6 @@ class CliController extends ControllerBase
         $userMapper = new User_Mapper();
         $allUsers = $userMapper->fetchAll("id = 1");
        //  $remainingUsers = array_slice($allUsers,???);
-        die(print_r($allUsers));
         foreach($allUsers as $user){
             $this->user = $user;
             $userEmailAddress = $user->getEmail();
@@ -33,7 +32,11 @@ class CliController extends ControllerBase
                 $mail->setFrom("support@freehandicaptracker.net");
                 $mail->addRecipient($userEmailAddress);
                 $mail->setBody($emailContent);
-                $mail->send();
+                try{
+                    $mail->send();
+                }catch(Exception $e){
+                    echo $e->getMessage();
+                }
                 echo "mail sent to: " . $userEmailAddress . "\r\n";
                 sleep(5);
             }else{

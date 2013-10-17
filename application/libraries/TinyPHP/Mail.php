@@ -73,8 +73,6 @@ class Mail
         }
         if(!$mail->Send()){
             throw new Exception("Mailer Error: " . $mail->ErrorInfo);
-        }else{
-            return true;
         }
     }
     
