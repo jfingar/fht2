@@ -17,7 +17,7 @@ class RegisterController extends ControllerBase
     protected function index()
     {
         $this->title = "Free Handicap Tracker - Register For A Free Account";
-        $this->addJavascript('js/register.min.js');
+        $this->addJavascript('js/register.js');
     }
     
     protected function doRegister()

@@ -23,7 +23,7 @@
             <input name="password2" type="password" class="text-input-1" />
         </div>
         <div class="chxContainer floatLeft rightCol">
-            <input type="checkbox" value="1" checked="checked" name="tandc" /> <label class="chxLabel" for="tandc">I agree to the terms and conditions</label>
+           <label id="tancd-link" class="chxLabel" for="tandc">Please view the terms and conditions</label>
         </div>
         <div class="clear"></div>
         <div id="registerSubmitContainer" class="submitContainer">
@@ -83,5 +83,9 @@
 </div>
 <div class="clear"></div>
 <div id="tandc-modal">
-    
+    <p>FreeHandicapTracker.net is a completely free service. We will not bill you or ask for your payment information at any time, for any reason. We also will never sell your e-mail address or any other information to any 3rd parties.</p>
+    <hr />
+    <p>The handicap index that is calculated for you is accurate to the best of the website owner's knowledge. However, FreeHandicapTracker.net does not guarantee accuracy on your handicap index. When you set up an account at FreeHandicapTracker.net, you agree that the owner of this website will not be held liable for any competition-related outcome based on the handicap calculated and provided.</p>
+    <hr />
+    <p>Also, by signing up for this service, you agree that the website owner will not be held liable for any lost golf data or records that are stored on this site due to any technical malfunction or site closure.</p>
 </div>
