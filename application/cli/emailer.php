@@ -5,4 +5,4 @@ chdir("../../webroot");
 require_once "../application/libraries/TinyPHP/Application.php";
 Application::run('cli',true);
 
-new CliController('UpdatedSiteEmail');
+new CliController('PwResetMessupEmail');
