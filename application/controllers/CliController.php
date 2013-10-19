@@ -18,8 +18,8 @@ class CliController extends ControllerBase
         $rows = $pwResetMapper->fetchAll();
         $userMapper = new User();
         foreach($rows as $row){
-            $this->user = $userMapper->fetchRow("email = ?",array($row));
-            $userEmailAddress = $this->user->getEmail();
+            $userEmailAddress = $row->getEmail();
+            $this->user = $userMapper->fetchRow("email = ?",array($userEmailAddress));
             $emailContent = $this->returnView('emails/pw-reset-messup');
             $emailSubject = "FreeHandicapTracker.net password reset fixed";
             $mail = new Mail();
