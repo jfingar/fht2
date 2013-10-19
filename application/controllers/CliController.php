@@ -3,7 +3,6 @@ namespace Controllers;
 use Libraries\TinyPHP\ControllerBase;
 use Models\Mappers\PasswordReset;
 use Models\Mappers\User;
-use Libraries\TinyPHP\Validate\EmailAddress AS EmailValidator;
 use Libraries\TinyPHP\Mail;
 use \Exception;
 class CliController extends ControllerBase
@@ -15,11 +14,10 @@ class CliController extends ControllerBase
     }
     public function PwResetMessupEmail()
     {
-//        $pwResetMapper = new PasswordReset();
-//        $rows = $pwResetMapper->fetchAll();
-        $tmp = array('jfingar@gmail.com');
+        $pwResetMapper = new PasswordReset();
+        $rows = $pwResetMapper->fetchAll();
         $userMapper = new User();
-        foreach($tmp as $row){
+        foreach($rows as $row){
             $this->user = $userMapper->fetchRow("email = ?",array($row));
             $userEmailAddress = $this->user->getEmail();
             $emailContent = $this->returnView('emails/pw-reset-messup');
