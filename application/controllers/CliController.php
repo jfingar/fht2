@@ -20,7 +20,7 @@ class CliController extends ControllerBase
         $tmp = array('jfingar@gmail.com');
         $userMapper = new User();
         foreach($tmp as $row){
-            $this->user = $userMapper->fetchRow("email = ?",$row);
+            $this->user = $userMapper->fetchRow("email = ?",array($row));
             $userEmailAddress = $this->user->getEmail();
             $emailContent = $this->returnView('emails/pw-reset-messup');
             $emailSubject = "FreeHandicapTracker.net password reset fixed";
