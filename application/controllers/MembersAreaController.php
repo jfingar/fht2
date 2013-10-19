@@ -144,9 +144,11 @@ class MembersAreaController extends ControllerBase
     {
         $this->isAjax = true;
         $userMapper = new User_Mapper;
+        $firstName = ucfirst(strtolower($_POST['firstName']));
+        $lastName = ucfirst(strtolower($_POST['lastName']));
         $user = $userMapper->find($this->user->getId());
-        $user->setFirstName($_POST['firstName']);
-        $user->setLastName($_POST['lastName']);
+        $user->setFirstName($firstName);
+        $user->setLastName($lastName);
         $user->setEmail($_POST['email']);
         
         $updatePW = false;

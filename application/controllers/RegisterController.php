@@ -25,9 +25,11 @@ class RegisterController extends ControllerBase
     {
         $this->isAjax = true;
         $json = array('status' => false);
+        $firstName = ucfirst(strtolower($_POST['firstName']));
+        $lastName = ucfirst(strtolower($_POST['lastName']));
         $user = new User_Model();
-        $user->setFirstName($_POST['firstName']);
-        $user->setLastName($_POST['lastName']);
+        $user->setFirstName($firstName);
+        $user->setLastName($lastName);
         $user->setPassword($_POST['password1']);
         $user->setPassword2($_POST['password2']);
         $user->setSignupType('website');
