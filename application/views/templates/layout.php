@@ -48,7 +48,7 @@
                 <td>10 lowest</td>
             </tr>
         </table>
-        <p>Find the average of the differentials that you used (remember to only use the number of differentials supplied by the table above).</p>
+        <p>Find the average of the differentials that you used (remember to only use the number of differentials supplied by the table).</p>
         <p>Multiply the result by .96 - rounded to the nearest tenth decimal place, this is your handicap index.</p>
         <p>Confused? A great, detailed explanation of handicap calculation can be found <a href="http://golf.about.com/cs/handicapping/a/howcalculated.htm" target="_blank">here</a>.</p>
     </div>
