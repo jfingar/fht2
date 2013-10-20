@@ -2,7 +2,7 @@
     <div id="nav-menu">
         <a href="view-scores">My Scores</a>
         <a href="my-account">My Account</a>
-        <div class="stat-label">Current Handicap:</div>
+        <div class="stat-label"><img class="tooltip" id="hcp-info" src="/img/information.png" alt="" /> Current Handicap:</div>
         <div id="hcp" class="stat-container"></div>
         <div class="stat-label">Best Score:</div>
         <div id="best" class="stat-container"></div>

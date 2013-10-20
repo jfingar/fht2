@@ -3,6 +3,23 @@ $(document).ready(function(){
     $('body').on('click','.notification-close',function(){
         $('#notification').html("").hide();
     });
+    $('#hcp-info').qtip({
+        position : {
+            my : 'top center',
+            at : 'bottom center'
+        },
+        content : {
+            title : 'About Handicap Calculation',
+            text : $('#hcp-tooltip-content-wrapper').html()
+        },
+        style : {
+            classes : 'hcp-tooltip'
+        },
+        hide: {
+            fixed : true,
+            delay : 500
+        }
+    });
 });
 function showLoader(form){
     form.find('input[type="submit"]').hide();

@@ -328,10 +328,12 @@ p.bottomMargin{
 .changePwContainer .text-input-1{
     width: 183px;
 }
-
 #ad-right{
     float: left;
     margin-left: 110px;
     background-color: #EFEFEF;
     text-align: center;
+}
+#hcp-info{
+    cursor: pointer;
 }

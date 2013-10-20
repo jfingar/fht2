@@ -335,3 +335,34 @@ h1{
     background-color: #FFF;
     box-shadow: 0px 0px 5px #888;
 }
+
+#rounds-used{
+    border-collapse: collapse;
+    border: 1px solid #CCC;
+    width: 200px;
+    float: right;
+    margin: 10px 0px 0px 10px;
+}
+
+#rounds-used tr:nth-child(even){
+    background-color: #FFF;
+}
+
+#hcp-tooltip-content{
+    font-size: 14px;
+    line-height: 22px;
+}
+
+#hcp-tooltip-content p{
+    margin-bottom: 10px;
+}
+
+.hcp-tooltip{
+    max-width: 450px !important;
+}
+
+#hcp-info{
+    position: relative;
+    top: 2px;
+    right: 4px;
+}
