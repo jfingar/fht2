@@ -13,7 +13,8 @@ class User extends MapperBase
             ->setPassword($row['password'])
             ->setFirstName($row['firstName'])
             ->setLastName($row['lastName'])
-            ->setSignupType($row['signupType']);
+            ->setSignupType($row['signupType'])
+            ->setSignupDate($row['signupDate']);
     }
     
    protected function getProperties($obj)
@@ -24,7 +25,8 @@ class User extends MapperBase
            'password' => $obj->getPassword(),
            'firstName' => $obj->getFirstName(),
            'lastName' => $obj->getLastName(),
-           'signupType' => $obj->getSignupType()
+           'signupType' => $obj->getSignupType(),
+           'signupDate' => $obj->getSignupDate()
        );
    }
 }

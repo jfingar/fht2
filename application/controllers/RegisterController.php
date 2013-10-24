@@ -4,7 +4,7 @@ use Libraries\TinyPHP\ControllerBase;
 use Models\User as User_Model;
 use Models\Helpers\User as User_Helper;
 use Models\Mappers\User as User_Mapper;
-use \Exception;
+// use Libraries\TinyPHP\Mail;
 class RegisterController extends ControllerBase
 {
     
@@ -34,6 +34,7 @@ class RegisterController extends ControllerBase
         $user->setPassword2($_POST['password2']);
         $user->setSignupType('website');
         $user->setEmail($_POST['email']);
+        $user->setSignupDate(date("Y-m-d H:i:s"));
 
         $errors = User_Helper::validate($user);
         if(!$_POST['password1'] || !$_POST['password2']){
@@ -47,6 +48,15 @@ class RegisterController extends ControllerBase
             $userMapper->save($user);
             $json['status'] = true;
             $_SESSION['id'] = $user->getId();
+            
+//            $this->user = $user;
+//            $welcomeEmailBody = $this->returnView("emails/new-user-welcome");
+//            $mailer = new Mail();
+//            $mailer->setFrom("support@freehandicaptracker.net", "FreeHandicapTracker");
+//            $mailer->setSubject("Thank you for signing up at Free Handicap Tracker!");
+//            $mailer->addRecipient($user->getEmail());
+//            $mailer->setBody($welcomeEmailBody);
+//            $mailer->send();
         }
         echo json_encode($json);
     }

@@ -67,8 +67,8 @@ class ServicesController extends ControllerBase
     {
         $response = array();
         
-        $firstname = $_REQUEST['firstname'];
-        $lastname = $_REQUEST['lastname'];
+        $firstname = ucfirst(strtolower($_REQUEST['firstname']));
+        $lastname = ucfirst(strtolower($_REQUEST['lastname']));
         $email = $_REQUEST['email'];
         $pw1 = $_REQUEST['pw1'];
         $pw2 = $_REQUEST['pw2'];
@@ -80,6 +80,7 @@ class ServicesController extends ControllerBase
         $user->setPassword($pw1);
         $user->setPassword2($pw2);
         $user->setSignupType('app');
+        $user->setSignupDate(date("Y-m-d H:i:s"));
         
         $errors = User_Helper::validate($user);
         if(empty($errors)){

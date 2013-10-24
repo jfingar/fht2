@@ -9,6 +9,7 @@ class User
     private $firstName;
     private $lastName;
     private $signupType;
+    private $signupDate;
     	
     public function setId($val)
     {
@@ -87,5 +88,16 @@ class User
     public function getSignupType()
     {
         return $this->signupType;
+    }
+    
+    public function setSignupDate($var)
+    {
+        $this->signupDate = $var;
+        return $this;
+    }
+	
+    public function getSignupDate()
+    {
+        return $this->signupDate;
     }
 }
