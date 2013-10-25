@@ -84,7 +84,7 @@ body{
 }
 
 #banner{
-    width: 1000px;
+    width: 1010px;
     background-color: #0e5350;
     height: 200px;
     margin: auto;
@@ -100,7 +100,7 @@ body{
 }
 
 #container{
-    width: 960px;
+    width: 970px;
     padding: 20px;
     margin: 10px auto;
     box-shadow: 0px 0px 3px #888;
