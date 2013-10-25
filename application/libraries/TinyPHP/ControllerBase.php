@@ -13,7 +13,7 @@ abstract class ControllerBase{
     private $functionName;
     private $content;
 	
-    public function __construct($func)
+    public function __construct($func,$isCli = false)
     {
         $bootstrap = new \Bootstrap($this);
         $bootstrap->run();
@@ -22,17 +22,24 @@ abstract class ControllerBase{
             $this->functionName = $func;
             $this->$func();
         }else{
-            throw new \Exception("The function specified for this Route (" . $func . ") does not exist. Make sure you create the function in the controller for this page.");
+            if($isCli){
+                $exceptionMsg = "That function (" . $func . ") doesn't exist in CliContoller.";
+            }else{
+                $exceptionMsg = "The function specified for this Route (" . $func . ") does not exist. Make sure you create the function in the controller for this page.";
+            }
+            throw new \Exception($exceptionMsg);
         }
-        if($this->isAjax){
-            $this->suppressLayout = true;
-            $this->suppressView = true;
+        if(!$isCli){
+            if($this->isAjax){
+                $this->suppressLayout = true;
+                $this->suppressView = true;
+            }
+            if(!$this->suppressLayout){
+                $layout = new LayoutController();
+                $layout->setGlobalVars();
+            }
+            $this->renderSite();
         }
-        if(!$this->suppressLayout){
-            $layout = new LayoutController();
-            $layout->setGlobalVars();
-        }
-        $this->renderSite();
     }
 	
     private function renderSite()
