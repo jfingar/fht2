@@ -203,4 +203,12 @@ class User
             $statement->execute($prepared);
         }
     }
+    
+    public static function GetMonthlyHandicapData(User_Model $user)
+    {
+        // get all user's oldest score so we know which month to begin with
+        $scoreMapper = new Score_Mapper();
+        $oldestScore = $scoreMapper->fetchRow("user_id = :userId ORDER BY date ASC",array(':userId' => $user->getId()));
+        return $oldestScore;
+    }
 }
