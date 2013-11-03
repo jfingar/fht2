@@ -2,7 +2,6 @@
 namespace Libraries\TinyPHP\Db;
 use Libraries\TinyPHP\Db\Adapter;
 use Libraries\TinyPHP\Application;
-use \PDOException;
 use \Exception;
 abstract class MapperBase
 {
@@ -19,25 +18,19 @@ abstract class MapperBase
     
     public function __construct()
     {
-        try{
-            $this->adapter = Adapter::GetMysqlAdapter();
-            if(!$this->schema_name){
-                $config = Application::$config;
-                $this->schema_name = isset($config['db_name']) ? $config['db_name'] : null;
-            }
-            if(!$this->schema_name){
-                throw new Exception("Please define a schema name in your config or in " . get_class($this));
-            }
-            if(!$this->table_name){
-                throw new Exception("Please define a table name in " . get_class($this));
-            }
-            if(!$this->model_name){
-                throw new Exception("Please specify the model name (\$model_name) in " . get_class($this));
-            }
-        }catch(PDOException $e){
-            throw $e;
-        }catch(Exception $e){
-            throw $e;
+        $this->adapter = Adapter::GetMysqlAdapter();
+        if(!$this->schema_name){
+            $config = Application::$config;
+            $this->schema_name = isset($config['db_name']) ? $config['db_name'] : null;
+        }
+        if(!$this->schema_name){
+            throw new Exception("Please define a schema name in your config or in " . get_class($this));
+        }
+        if(!$this->table_name){
+            throw new Exception("Please define a table name in " . get_class($this));
+        }
+        if(!$this->model_name){
+            throw new Exception("Please specify the model name (\$model_name) in " . get_class($this));
         }
     }
     

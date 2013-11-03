@@ -2,7 +2,6 @@
 namespace Libraries\TinyPHP\Db;
 use Libraries\TinyPHP\Application;
 use \PDO;
-use \PDOException;
 class Adapter
 {
     private static $pdoInstance = null;
@@ -17,14 +16,10 @@ class Adapter
             $dbpass = isset($conf['db_password']) ? $conf['db_password'] : '';
             $dbname = isset($conf['db_name']) ? $conf['db_name'] : '';
             $dsn = 'mysql:host=' . $dbhost . ';dbname=' . $dbname;
-            try{
-                $oPDO = new PDO($dsn,$dbuser,$dbpass);
-                $oPDO->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-                $oPDO->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
-                self::$pdoInstance = $oPDO;
-            }catch(PDOException $e){
-                throw $e;
-            }
+            $oPDO = new PDO($dsn,$dbuser,$dbpass);
+            $oPDO->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+            $oPDO->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
+            self::$pdoInstance = $oPDO;
         }
         return self::$pdoInstance;
     }
