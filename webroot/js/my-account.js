@@ -21,6 +21,35 @@ $(document).ready(function(){
         }
     });
     refreshStats();
+    $.get('/members-area/get-monthly-graph-data',function(response){
+        var container = [];
+        var counter = 0;
+        var startingDate = '';
+        for(var i in response){
+            var hcpDatePair = [i,response[i]];
+            container.push(hcpDatePair);
+            if(counter === 0){
+                startingDate = i;
+            }
+            counter++;
+        }
+        var line1 = container;
+        $.jqplot('hcp-graph',[line1],{
+            title : 'Monthly Handicap Index',
+            axes : {
+                xaxis : {
+                    renderer : $.jqplot.DateAxisRenderer,
+                    tickOptions : {formatString : '%b'},
+                    min : startingDate,
+                    tickInterval : '1 month',
+                    angle : -30
+                },
+                yaxis : {
+                    label : 'Handicap Index'
+                }
+            }
+        });
+    },'json');
 });
 
 function initAccountUpdate(){

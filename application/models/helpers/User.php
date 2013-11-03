@@ -5,16 +5,21 @@ use Models\Mappers\User AS User_Mapper;
 use Models\Mappers\Score AS Score_Mapper;
 use Libraries\TinyPHP\Validate\EmailAddress AS EmailValidator;
 use \Libraries\TinyPHP\Db\Adapter;
+use \DateTime;
+use \DateInterval;
 class User
 {
-    public static function getHandicap(User_Model $user)
+    public static function getHandicap(User_Model $user,DateTime $beforeDate = null)
     {
         $handicap = 'N/A';
         $scoreMapper = new Score_Mapper();
-        $resultSet = $scoreMapper->fetchAll("user_id = :user_id ORDER BY date DESC LIMIT 20", array(':user_id' => $user->getId()));
-        if(!empty($resultSet)){
+        
+        $beforeDate = $beforeDate ? 'AND date <= \'' . $beforeDate->format("Y-m-d h:i:s") . '\'' : '';
+        
+        $scoresSet = $scoreMapper->fetchAll("user_id = :user_id $beforeDate ORDER BY date DESC LIMIT 20", array(':user_id' => $user->getId()));
+        if(!empty($scoresSet)){
             $diffs = array();
-            foreach($resultSet as $score){
+            foreach($scoresSet as $score){
                 $diffs[] = $score->getDifferential();
             }
             sort($diffs);
@@ -202,9 +207,18 @@ class User
     
     public static function GetMonthlyHandicapData(User_Model $user)
     {
-        // get all user's oldest score so we know which month to begin with
         $scoreMapper = new Score_Mapper();
-        $oldestScore = $scoreMapper->fetchRow("user_id = :userId ORDER BY date ASC",array(':userId' => $user->getId()));
-        return $oldestScore;
+        $allScores = $scoreMapper->fetchAll("user_id = :userId ORDER BY date ASC",array(':userId' => $user->getId()));
+        $startDate = new DateTime($allScores[0]->getDate());
+        $currentDate = new DateTime();
+        $handicapSet = array();
+        for($date = $startDate; $date <= $currentDate; $date = $date->add(new DateInterval("P1M"))){
+            $handicapSet[$date->format("Y-m-d")] = self::getHandicap($user,$date);
+        }
+        end($handicapSet);
+        if($currentDate > new DateTime(key($handicapSet))){
+            $handicapSet[$currentDate->format("Y-m-d")] = self::getHandicap($user);
+        }
+        return $handicapSet;
     }
 }

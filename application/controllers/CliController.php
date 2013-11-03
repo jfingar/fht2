@@ -9,6 +9,6 @@ class CliController extends ControllerBase
     {
         $userMapper = new User_Mappper();
         $user = $userMapper->find(1);
-        print_r(User_Helper::GetMonthlyHandicapData($user));
+        User_Helper::GetMonthlyHandicapData($user);
     }
 }

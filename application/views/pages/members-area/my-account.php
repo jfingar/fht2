@@ -64,7 +64,6 @@
 
 <div id="ad-right">
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- my-account page-right -->
     <ins class="adsbygoogle"
          style="display:inline-block;width:336px;height:280px"
          data-ad-client="ca-pub-0606881367275935"
@@ -72,4 +71,8 @@
     <script>
     (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
+</div>
+<div class="clear"></div>
+<div id="hcp-graph">
+    
 </div>
