@@ -25,7 +25,7 @@ function initLogin(){
             dataType : 'json',
             success : function(response){
                 if(response.status){
-                    window.location.href = '/members-area/view-scores';
+                    window.location.replace('/members-area/view-scores');
                 }else{
                     hideLoader(loginForm);
                     var errorString = '';
