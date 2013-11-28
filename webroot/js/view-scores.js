@@ -57,7 +57,7 @@ $(document).ready(function(){
         width : 570,
         autoOpen : false
     });
-    adTrigger();
+    // adTrigger();
     refreshStats();
 });
 
