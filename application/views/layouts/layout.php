@@ -23,12 +23,19 @@
 </head>
 <body>
     <div id="notification"></div>
-    <div id="banner">
-        <img id="banner-logo" src="/img/bannerlogo.png" alt="Free Handicap Tracker" />
-        <img id="putting-green" src="/img/putting-green.png" alt="Golf Handicap Calculator" />
-        <h2 id="slogan">
-            The Free &amp; Easy Way To Track Your Golf Handicap Online!
-        </h2>
+    <div id="page-top-container">
+        <div id="banner-container">
+            <div id="banner-left">
+                <img id="banner-logo" src="/img/bannerlogo.png" alt="Free Handicap Tracker" />
+                <h2 id="slogan">
+                    The Free &amp; Easy Way To Track Your Golf Handicap Online!
+                </h2>
+            </div>
+            <div id="banner-right">
+                <img id="putting-green" src="/img/putting-green.png" alt="Golf Handicap Calculator" />
+            </div>
+            <div class="clear"></div>
+        </div>
     </div>
 	<div id="container">
             <?= $this->returnView('partials/nav-menu'); ?>

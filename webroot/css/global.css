@@ -83,18 +83,29 @@ body{
     margin: 0px;
 }
 
-#banner{
-    width: 1010px;
+#page-top-container{
     background-color: #0e5350;
     height: 200px;
+}
+
+#banner-container{
+    width: 1010px;
     margin: auto;
-    position: relative;
 }
 
-#banner-logo{
-    margin: 75px 0px 0px 30px;
+#slogan{
+    color: #FFF;
+    font-weight: 200;
 }
 
+#banner-left{
+    float: left;
+    padding-top: 60px;
+    padding-left: 20px;
+}
+#banner-right{
+    float: right;
+}
 #putting-green{
     float: right;
 }
@@ -156,14 +167,6 @@ body{
     margin-left: 20px;
     width: 682px;
     text-align: justify;
-}
-
-#slogan{
-    color: #FFF;
-    font-weight: 200;
-    position: absolute;
-    top: 138px;
-    left: 348px;
 }
 
 h1{
