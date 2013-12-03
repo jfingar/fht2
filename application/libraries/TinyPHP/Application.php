@@ -40,38 +40,38 @@ class Application
     
     private static function initPHPMailer()
     {
-        $swiftMailerIncludeFilePath = self::$APP_ROOT_DIR . '../libraries/PHPMailer/class.phpmailer.php';
-        if(file_exists($swiftMailerIncludeFilePath)){
-            require_once $swiftMailerIncludeFilePath;
-        }
+        spl_autoload_register(function($class){
+            if($class == 'PHPMailer'){
+                $phpMailerPath = self::$APP_ROOT_DIR . '../libraries/PHPMailer/class.phpmailer.php';
+                $phpMailerPathAlt = self::$LIB_DIR . 'PHPMailer/class.phpmailer.php';
+                if(file_exists($phpMailerPath)){
+                    require_once $phpMailerPath;
+                }elseif(file_exists($phpMailerPathAlt)){
+                    require_once $phpMailerPathAlt;
+                }
+            }
+        });
     }
-	
+    
     public static function initAutoload()
     {
         spl_autoload_register(function($class){
             $class = str_replace("\\",DIRECTORY_SEPARATOR,$class);
-            $pathToClassFile = Application::$APPLICATION_DIR . $class . '.php';
-            if(strpos($pathToClassFile,'Libraries')){
-                $pathToClassFile = str_replace('Libraries','libraries',$pathToClassFile);
-            }
-            if(strpos($pathToClassFile,'Models')){
-                $pathToClassFile = str_replace('Models','models',$pathToClassFile);
-            }
-            if(strpos($pathToClassFile,'Helpers')){
-                $pathToClassFile = str_replace('Helpers','helpers',$pathToClassFile);
-            }
-            if(strpos($pathToClassFile,'Mappers')){
-                $pathToClassFile = str_replace('Mappers','mappers',$pathToClassFile);
-            }
-            if(strpos($pathToClassFile,'Controllers')){
-                $pathToClassFile = str_replace('Controllers','controllers',$pathToClassFile);
+            $classParts = explode(DIRECTORY_SEPARATOR,$class);
+            $pathToClassFile = Application::$APPLICATION_DIR;
+            foreach($classParts as $k => $part){
+                if($k + 1 < count($classParts)){
+                    $pathToClassFile .= ucfirst($part) . DIRECTORY_SEPARATOR;
+                }else{
+                    $pathToClassFile .= $part . ".php";
+                }
             }
             if(file_exists($pathToClassFile)){
                 include_once $pathToClassFile;
             }
         });
     }
-	
+    
     public static function initConfig()
     {
         self::buildConfig(self::$env);
@@ -83,11 +83,11 @@ class Application
         $displayErrors = isset(self::$config['display_errors']) ? self::$config['display_errors'] : 0;
         ini_set('display_errors',$displayErrors);
     }
-	
+    
     private static function startRouting()
     {
-        include self::$APPLICATION_DIR . 'Routes.php';
-        $router = new Router($aRoutes);
+        include self::$APPLICATION_DIR . 'CustomRoutes.php';
+        $router = new Router($customRoutes);
         try{
             $router->dispatch($_SERVER['REQUEST_URI']);
         }catch(\Exception $e){

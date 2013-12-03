@@ -5,7 +5,7 @@
 *  Ommitting the $func argument will call the index() function in the controller
 */
 use Libraries\TinyPHP\Route;
-$aRoutes = array(
+$customRoutes = array(
     new Route('index','IndexController'),
     new Route('register','RegisterController'),
     new Route('do-register','RegisterController','doRegister'),
