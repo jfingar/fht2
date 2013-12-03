@@ -33,20 +33,18 @@ $(document).ready(function(){
             }
             counter++;
         }
-        var line1 = container;
-        $.jqplot('hcp-graph',[line1],{
+        $.jqplot('hcp-graph',[container],{
             title : 'Monthly Handicap Index',
             axes : {
                 xaxis : {
                     renderer : $.jqplot.DateAxisRenderer,
                     tickOptions : {formatString : '%b'},
                     min : startingDate,
-                    tickInterval : '1 month',
-                    angle : -30
-                },
-                yaxis : {
-                    label : 'Handicap Index'
+                    tickInterval : '1 month'
                 }
+            },
+            highlighter: {
+                showTooltip : true
             }
         });
     },'json');
