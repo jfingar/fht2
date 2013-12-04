@@ -8,7 +8,7 @@ function initSaveNewPassword(){
         showLoader(pwResetForm);
         pwResetForm.find('.ajaxResponseContainer').hide();
         $.ajax({
-            url : 'save-new-password',
+            url : '/index/save-new-password',
             type : 'post',
             data : $(this).serialize(),
             dataType : 'json',

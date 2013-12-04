@@ -19,7 +19,7 @@ function initLogin(){
         showLoader(loginForm);
         loginForm.find('.ajaxResponseContainer').hide();
         $.ajax({
-            url : 'login',
+            url : '/auth/login',
             type : 'post',
             data : $(this).serialize(),
             dataType : 'json',
@@ -46,7 +46,7 @@ function initPwReset(){
         showLoader(pwResetForm);
         pwResetForm.find('.ajaxResponseContainer').hide();
         $.ajax({
-            url : 'send-reset-pw-email',
+            url : '/index/password-reset-email',
             type : 'post',
             data : $(this).serialize(),
             dataType : 'json',

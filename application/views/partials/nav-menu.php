@@ -10,7 +10,7 @@
         <div id="avg" class="stat-container"></div>
         <div class="stat-label">Rounds:</div>
         <div id="rounds" class="stat-container"></div>
-        <a href="/members-area/logout" id="logout">Logout</a>
+        <a href="/auth/logout" id="logout">Logout</a>
         <div class="clear"></div>
     </div>
     <div id="spacer-div-under-nav"></div>

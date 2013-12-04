@@ -26,6 +26,12 @@ class MembersAreaController extends ControllerBase
             $_SESSION['showIntro'] = true;
         }
     }
+
+    protected function index()
+    {
+        $this->view = '/pages/members-area/view-scores';
+        $this->viewScores();
+    }
     
     protected function viewScores()
     {

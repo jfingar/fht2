@@ -17,13 +17,13 @@ function initRegister(){
         showLoader(registerForm);
         $('.ajaxResponseContainer').hide();
         $.ajax({
-            url : 'do-register',
+            url : '/register/do-register',
             type : 'post',
             data : $(this).serialize(),
             dataType : 'json',
             success : function(response){
                 if(response.status){
-                    window.location.href = 'members-area/view-scores';
+                    window.location.href = '/members-area';
                 }else{
                     hideLoader(registerForm);
                     var errorString = '';

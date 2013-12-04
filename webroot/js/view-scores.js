@@ -65,7 +65,7 @@ function initAutocomplete(){
     $('#add-score-active .score-input.courseName').autocomplete({
         source : function(request,response){
             $.ajax({
-                url : '/members-area/autocomplete',
+                url : '/members-area/auto-complete',
                 data : {searchTerm : request.term},
                 dataType : 'json',
                 type : 'get',
@@ -118,7 +118,7 @@ function adTrigger(){
 }
 
 function exportCsv(){
-    window.location.href = '/members-area/scores-csv?orderBy=' + sortField + '&dir=' + sortDir;
+    window.location.href = '/members-area/get-csv?orderBy=' + sortField + '&dir=' + sortDir;
 }
 
 function deleteAllScores(){

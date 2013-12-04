@@ -42,8 +42,8 @@ class Application
     {
         spl_autoload_register(function($class){
             if($class == 'PHPMailer'){
-                $phpMailerPath = self::$APP_ROOT_DIR . '../libraries/PHPMailer/class.phpmailer.php';
-                $phpMailerPathAlt = self::$LIB_DIR . 'PHPMailer/class.phpmailer.php';
+                $phpMailerPath = '../../libraries/PHPMailer/class.phpmailer.php';
+                $phpMailerPathAlt = '../application/libraries/PHPMailer/class.phpmailer.php';
                 if(file_exists($phpMailerPath)){
                     require_once $phpMailerPath;
                 }elseif(file_exists($phpMailerPathAlt)){
