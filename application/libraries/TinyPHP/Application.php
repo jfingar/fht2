@@ -61,7 +61,11 @@ class Application
             $pathToClassFile = Application::$APPLICATION_DIR;
             foreach($classParts as $k => $part){
                 if($k + 1 < count($classParts)){
-                    $pathToClassFile .= ucfirst($part) . DIRECTORY_SEPARATOR;
+                    if(in_array($part,array('Libraries','Controllers','Models','Helpers','Mappers'))){
+                        $pathToClassFile .= strtolower($part) . DIRECTORY_SEPARATOR;
+                    }else{
+                        $pathToClassFile .= ucfirst($part) . DIRECTORY_SEPARATOR;
+                    }
                 }else{
                     $pathToClassFile .= $part . ".php";
                 }
