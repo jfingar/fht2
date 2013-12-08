@@ -27,8 +27,6 @@ class RegisterTest extends PHPUnit_Framework_TestCase
         $this->assertCount(0,$errors,print_r($errors,true));
         $userMapper = new User_Mapper();
         $userMapper->save($user);
-        $loginCredentials = array('email' => $email,'password' => $password1);
-        return $loginCredentials;
     }
     
     public function provider()
