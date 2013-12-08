@@ -50,7 +50,7 @@ class RegisterTest extends PHPUnit_Framework_TestCase
             $lastName = $result['lastname'];
             
             $emailDomains = array('gmail','aol','hotmail','yahoo');
-            $email = substr($firstName,0,2) . $lastName . substr(time(),4,7) . '@' . $emailDomains[rand(0,3)] . '.com';
+            $email = substr($firstName,0,2) . $lastName . rand(1,9999) . '@' . $emailDomains[rand(0,3)] . '.com';
             
             $password1 = 'yolo';
             $password2 = 'yolo';
