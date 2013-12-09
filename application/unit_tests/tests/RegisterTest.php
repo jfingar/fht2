@@ -5,6 +5,7 @@ use Models\Helpers\User AS User_Helper;
 use Models\User AS User_Model;
 use Models\Mappers\User AS User_Mapper;
 use Libraries\TinyPHP\Db\Adapter;
+
 class RegisterTest extends PHPUnit_Framework_TestCase
 {
     /**
