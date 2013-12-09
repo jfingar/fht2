@@ -7,7 +7,6 @@ class Score
     {
         if(!$score->getScore() || !$score->getRating() || !$score->getSlope()){
             throw new \Exception("Score, Rating, and Slope must be set in order to calculate differential");
-            return;
         }
         $differential = (($score->getScore() - $score->getRating()) * 113) / $score->getSlope();
         $score->setDifferential($differential);
