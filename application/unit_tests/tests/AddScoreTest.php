@@ -31,13 +31,16 @@ class AddScoreTest extends PHPUnit_Framework_TestCase
         for($i = 1; $i <= $numberOfScoresToEnter; $i++){
             $score = new Score_Model();
             $score->setCourseName($golfCourseNames[rand(0,8)]);
-            $score->setDate(date("Y-m-d"));
+            $randomDate = date("Y-m-d H:i:s",mt_rand(strtotime("-10 years"),time()));
+            $score->setDate($randomDate);
             $score->setHolesPlayed(18);
-            $score->setRating(71.6);
-            $score->setSlope(118);
+            
+            $rating = floatval(rand(67,73) . '.' . rand(0,9));
+            $score->setRating($rating);
+            $slope = round($rating * floatval('1.' . rand(65,90)),1);
+            $score->setSlope($slope);
             $score->setUserId(1);
-            $score->setTees('Black');
-            $score->setScore(rand(75,110));
+            $score->setScore(rand(75,105));
             try{
                 Score_Helper::calculateDifferential($score);
             }catch(\Exception $e){
