@@ -23,7 +23,8 @@ class AddScoreTest extends PHPUnit_Framework_TestCase
     
     public function provider()
     {
-        $numberOfScoresToEnter = 5;
+        global $argv;
+        $numberOfScoresToEnter = isset($argv[2]) ? $argv[2] : 5;
         
         $data = array();
         
