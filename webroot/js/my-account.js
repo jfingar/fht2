@@ -22,31 +22,46 @@ $(document).ready(function(){
     });
     refreshStats();
     $.get('/members-area/get-monthly-graph-data',function(response){
-        var container = [];
-        var counter = 0;
-        var startingDate = '';
-        for(var i in response){
-            var hcpDatePair = [i,response[i]];
-            container.push(hcpDatePair);
-            if(counter === 0){
-                startingDate = i;
-            }
-            counter++;
-        }
-        $.jqplot('hcp-graph',[container],{
-            title : 'Monthly Handicap Index',
-            axes : {
-                xaxis : {
-                    renderer : $.jqplot.DateAxisRenderer,
-                    tickOptions : {formatString : '%b'},
-                    min : startingDate,
-                    tickInterval : '1 month'
-                }
-            },
-            highlighter: {
-                showTooltip : true
-            }
-        });
+    	if(response.length > 0){
+    		response = response[0];
+	        var container = [];
+	        var counter = 0;
+	        var startingDate = '';
+	        for(var i in response){
+	            var hcpDatePair = [i,response[i]];
+	            container.push(hcpDatePair);
+	            if(counter === 0){
+	                startingDate = i;
+	            }
+	            counter++;
+	        }
+	        $.jqplot('hcp-graph',[container],{
+	            title : 'Handicap Index History (past year)',
+	            axes : {
+	                xaxis : {
+	                    renderer : $.jqplot.DateAxisRenderer,
+	                    tickOptions : {formatString : '%b %Y'},
+	                    min : startingDate,
+	                    tickInterval : '1 month',
+	                    pad : 1.5
+	                },
+	                yaxis : {
+	                	tickOptions : {
+	                		formatString : '%.1f'
+	                	},
+	                	pad : 1.5
+	                }
+	            },
+	            highlighter: {
+	                showTooltip : true
+	            },
+	            series : [{
+	            	pointLabels : {
+	            		show : true            		
+	            	}
+	            }]
+	        });
+    	}
     },'json');
 });
 

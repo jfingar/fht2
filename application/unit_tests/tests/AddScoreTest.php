@@ -32,7 +32,7 @@ class AddScoreTest extends PHPUnit_Framework_TestCase
         for($i = 1; $i <= $numberOfScoresToEnter; $i++){
             $score = new Score_Model();
             $score->setCourseName($golfCourseNames[rand(0,8)]);
-            $randomDate = date("Y-m-d H:i:s",mt_rand(strtotime("-10 years"),time()));
+            $randomDate = date("Y-m-d H:i:s",mt_rand(strtotime("-5 years"),time()));
             $score->setDate($randomDate);
             $score->setHolesPlayed(18);
             

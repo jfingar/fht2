@@ -44,9 +44,10 @@ class MembersAreaController extends ControllerBase
     {
         $this->title = "Free Handicap Tracker - Account Settings";
         $this->addJavascript('/js/jqPlot/jquery.jqplot.min.js');
-        $this->addJavascript('/js/my-account.js');
+        $this->addJavascript('/js/my-account.min.js');
         $this->addJavascript('/js/jqPlot/plugins/jqplot.dateAxisRenderer.min.js');
         $this->addJavascript('/js/jqPlot/plugins/jqplot.canvasAxisTickRenderer.min.js');
+        $this->addJavascript('/js/jqPlot/plugins/jqplot.pointLabels.js');
         $this->addStylesheet('/css/jqPlot/jquery.jqplot.min.css');
     }
     
@@ -210,6 +211,10 @@ class MembersAreaController extends ControllerBase
     protected function getMonthlyGraphData()
     {
         $this->isAjax = true;
-        echo json_encode(User_Helper::GetMonthlyHandicapData($this->user));
+        $handicapSet = User_Helper::GetMonthlyHandicapData($this->user);
+        if(!empty($handicapSet)){
+        	$handicapSet = array($handicapSet);
+        }
+        echo json_encode($handicapSet);
     }
 }

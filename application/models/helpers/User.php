@@ -207,17 +207,17 @@ class User
     
     public static function GetMonthlyHandicapData(User_Model $user)
     {
+    	$oneYearAgo = date("Y-m-d",strtotime("-1 year"));
         $scoreMapper = new Score_Mapper();
-        $allScores = $scoreMapper->fetchAll("user_id = :userId ORDER BY date ASC",array(':userId' => $user->getId()));
-        $startDate = new DateTime($allScores[0]->getDate());
+        $allScores = $scoreMapper->fetchAll("user_id = :userId AND date >= :date ORDER BY date ASC",array(':userId' => $user->getId(),':date' => $oneYearAgo));
+        $startDate = new DateTime($oneYearAgo);
         $currentDate = new DateTime();
         $handicapSet = array();
         for($date = $startDate; $date <= $currentDate; $date = $date->add(new DateInterval("P1M"))){
-            $handicapSet[$date->format("Y-m-d")] = self::getHandicap($user,$date);
-        }
-        end($handicapSet);
-        if($currentDate > new DateTime(key($handicapSet))){
-            $handicapSet[$currentDate->format("Y-m-d")] = self::getHandicap($user);
+        	$hcp = self::getHandicap($user,$date);
+        	if($hcp != 'N/A'){
+            	$handicapSet[$date->format("Y-m-d")] = $hcp;
+        	}
         }
         return $handicapSet;
     }
