@@ -42,14 +42,12 @@ $(document).ready(function(){
 	                    renderer : $.jqplot.DateAxisRenderer,
 	                    tickOptions : {formatString : '%b %Y'},
 	                    min : startingDate,
-	                    tickInterval : '1 month',
-	                    pad : 1.5
+	                    tickInterval : '1 month'
 	                },
 	                yaxis : {
 	                	tickOptions : {
 	                		formatString : '%.1f'
-	                	},
-	                	pad : 1.5
+	                	}
 	                }
 	            },
 	            highlighter: {
