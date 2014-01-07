@@ -11,8 +11,12 @@ class LoginTest extends PHPUnit_Framework_TestCase
      */
     public function Login($email,$password)
     {
+        echo "Attempting to login with email " . $email . " and Password " . $password . "\r\n";
         $user = User_Helper::authenticate($email, $password);
         $this->assertInstanceOf('\Models\User',$user);
+        if($user instanceof \Models\User){
+            echo "Authenticated successfully\r\n";
+        }
     }
     
     public function provider()

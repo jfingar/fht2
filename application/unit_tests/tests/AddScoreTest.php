@@ -6,6 +6,8 @@ use Models\Mappers\Score AS Score_Mapper;
 use Models\Helpers\Score AS Score_Helper;
 class AddScoreTest extends PHPUnit_Framework_TestCase
 {
+    private static $scoresAdded = 0;
+    
     /**
      * 
      * @test
@@ -19,6 +21,8 @@ class AddScoreTest extends PHPUnit_Framework_TestCase
         $scoreMapper = new Score_Mapper();
         $scoreMapper->save($score);
         $this->assertGreaterThan(0,$score->getId(),"Score passed validation but did not save correctly.");
+        self::$scoresAdded++;
+        echo "Saved Score Successfully (" . self::$scoresAdded . ")\r\n";
     }
     
     public function provider()

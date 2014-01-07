@@ -18,8 +18,8 @@ class DeleteScoreTest extends PHPUnit_Framework_TestCase
     	$score = $scoreMapper->fetchRow("user_id = :userId ORDER BY RAND()",array(':userId' => $userId));
     	
     	if(!$score){
-    		echo "User " . $userId . " has no scores to delete.";
-    		return;
+            echo "User " . $userId . " has no scores to delete.\r\n";
+            return;
     	}
     	
     	$chosenScoreId = $score->getId();
@@ -27,6 +27,9 @@ class DeleteScoreTest extends PHPUnit_Framework_TestCase
     	$scoreMapper->delete($score);
     	
     	$deletedScore = $scoreMapper->find($chosenScoreId);
-    	$this->assertFalse($deletedScore,"Score was not deleted!!!");    	
+    	$this->assertFalse($deletedScore,"Score was not deleted!!!");
+        if(!$deletedScore){
+            echo "Successfully deleted a random score.\r\n";
+        }
     }
 }

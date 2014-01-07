@@ -1,11 +1,10 @@
 <?php
 namespace Tests;
 use PHPUnit_Framework_TestCase;
-use Models\User AS User_Model;
 use Models\Mappers\User AS User_Mapper;
 use Models\Mappers\Score AS Score_Mapper;
 use Models\Helpers\User AS User_Helper;
-class AddScoreTest extends PHPUnit_Framework_TestCase
+class GetScoresTest extends PHPUnit_Framework_TestCase
 {
     /**
      * 
@@ -36,6 +35,6 @@ class AddScoreTest extends PHPUnit_Framework_TestCase
     		}
     		$row['formattedDate'] = date("m/d/Y",strtotime($row['date']));
     	}
-    	// print_r($scores);
+    	echo "Found " . count($scores) . " scores for user " . $user->getId() . "\r\n";
     }
 }
