@@ -176,14 +176,17 @@
 }
 
 #export-csv{
-    border-radius: 5px;
     float: left;
     color: #FFF;
-    cursor: pointer;
     background-color: #0E5350;
-    padding: 6px;
     margin-left: 5px;
     margin-top: 12px;
+}
+
+.groove-border-btn{
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 6px;
     border: 2px groove #333;
     font-size: 14px;
 }
@@ -212,14 +215,31 @@
 #delete-all{
     display: block;
     float: left;
-    padding: 6px;
     background-color: #ca3030;
     color: #FFF;
-    cursor: pointer;
-    font-size: 14px;
-    border-radius: 5px;
     margin-top: 12px;
-    border: 2px groove #333;
+}
+
+#alt-user-lookup-response{
+    padding: 5px;
+    background-color: #DDD;
+    text-align: center;
+    display: none;
+}
+
+#alt-lookup-response-hcp{
+    font-size: 20px;
+    padding-top: 10px;
+}
+
+#notification #alt-user-submit{
+    background-color: #0E5350;
+    color: #FFF;
+    font-weight: 300;
+}
+
+#alt-user-submit-container{
+    margin: 10px 0px;
 }
 
 #notification{
@@ -340,4 +360,11 @@ p.bottomMargin{
 #hcp-graph{
     text-align: center;
     margin-top: 20px;
+}
+#get-alternate-user-hcp{
+    color: blue;
+    cursor: pointer;
+    float: left;
+    font-size: 18px;
+    margin: 14px 0 0 34px;
 }

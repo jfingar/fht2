@@ -25,6 +25,22 @@
     </div>
 </script>
 
+<script type="text/template" id="alternate-user-lookup-content-wrapper">
+    <div id="alternate-user-lookup-content">
+        <form action="/members-area/alternate-user-lookup" method="post">
+            <div>
+                <label for="alternate-user-email">Enter User&apos;s Email Address:</label>
+                <input type="text" class="text-input-1" id="alternate-user-email" name="altUserEmail" />
+            </div>
+            <div id="alt-user-submit-container">
+                <input id="alt-user-submit" class="groove-border-btn" type="submit" value="Look Up" />
+            </div>
+            <div id="alt-user-lookup-response">
+            </div>
+        </form>
+    </div>
+</script>
+
 <script type="text/template" id="add-score-template">
     <tr class="add-score">
         <td colspan="8"><a id="add-score-link">Add A New Score</a></td>

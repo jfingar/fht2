@@ -49,16 +49,31 @@ $(document).ready(function(){
     
     /** Kickoff main score load process **/
     fetchUserScores(true);
-    
-    /** init popup modal with ad **/
-    $('#adModal').dialog({
-        title : 'The New FreeHandicapTracker.net',
-        modal : true,
-        width : 570,
-        autoOpen : false
-    });
+
     // adTrigger();
     refreshStats();
+    
+    $('#get-alternate-user-hcp').click(function(){
+        notify($('#alternate-user-lookup-content-wrapper').html(), "Alternate User Handicap Lookup");
+    });
+    
+    $('body').on('submit', '#alternate-user-lookup-content form', function(){
+        $('#alt-user-lookup-response').html("").hide();
+        $.ajax({
+            type : $(this).attr('method'),
+            dataType : 'json',
+            data : $(this).serialize(),
+            url : $(this).attr('action'),
+            success : function(response){
+                if(response.length){
+                    $('#alt-user-lookup-response').html("<div id=\"alt-lookup-response-label\">User \"" + $("#alternate-user-email").val() + "\"<br />current Hanidcap Index:</div><div id=\"alt-lookup-response-hcp\">" + response[0] + "</div>").show();
+                }else{
+                    $('#alt-user-lookup-response').html("<div class=\"errors\" style=\"padding: 6px;\">User handicap not available, or user not found.</div>").show();
+                }
+            }
+        });
+        return false;
+    });
 });
 
 function initAutocomplete(){

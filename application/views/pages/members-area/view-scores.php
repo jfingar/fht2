@@ -26,36 +26,13 @@
     <div id="scores-table-container">
     </div>
 
-    <a id="delete-all">Delete All Scores</a>
-    <div id="export-csv">Export Scores as Excel (CSV) File</div>
+    <a id="delete-all" class="groove-border-btn">Delete All Scores</a>
+    <div id="export-csv" class="groove-border-btn">Export Scores as Excel (CSV) File</div>
     <img class="pagination-arrows" id="arrow-right" src="/img/arrow_right.png" />
     <img class="pagination-arrows" id="arrow-left" src="/img/arrow_left.png" />
     <div class="clear"></div>
+    <a id="get-alternate-user-hcp">Alternate User Handicap Lookup</a>
     <div id="pagination"></div>
     <div class="clear"></div>
-</div>
-<div id="adModal">
-    <div id="adHeadline">
-        <p class="bottomMargin">
-            Welcome to the new and improved FreeHandicapTracker.net website!
-        </p>
-        <p class="bottomMargin">
-           Please feel free to <a href="mailto:support@freehandicaptracker.net">Contact the Webmaster by emailing support@freehandicaptracker.net</a> with any questions, or to report any bugs.
-        </p>
-        <p>
-            Thank you for your continued use of this free service, and don't forget to spread the word!
-        </p>
-    </div>
-    <div id="popupAdContainer">
-        <script type="text/javascript"><!--
-            google_ad_client = "ca-pub-0606881367275935";
-            /* Big Popup Ad */
-            google_ad_slot = "4481669952";
-            google_ad_width = 336;
-            google_ad_height = 280;
-            //-->
-        </script>
-        <script type="text/javascript" src="//pagead2.googlesyndication.com/pagead/show_ads.js"></script>
-    </div>
 </div>
 <?= $this->returnView('/templates/members-area'); ?>

@@ -22,9 +22,6 @@ class MembersAreaController extends ControllerBase
             die("User Not Found! You need to reset your session or just click <a href=\"/members-area/logout\">Here</a> to Logout.");
         }
         $this->addStylesheet('/css/members-area.css');
-        if(!isset($_SESSION['showIntro'])){
-            $_SESSION['showIntro'] = true;
-        }
     }
 
     protected function index()
@@ -49,17 +46,6 @@ class MembersAreaController extends ControllerBase
         $this->addJavascript('/js/jqPlot/plugins/jqplot.canvasAxisTickRenderer.min.js');
         $this->addJavascript('/js/jqPlot/plugins/jqplot.pointLabels.js');
         $this->addStylesheet('/css/jqPlot/jquery.jqplot.min.css');
-    }
-    
-    protected function adTrigger()
-    {
-        $this->isAjax = true;
-        $response = array();
-        if($_SESSION['showIntro']){
-            $_SESSION['showIntro'] = false;
-            $response['showAd'] = true;
-        }
-        echo json_encode($response);
     }
     
     protected function saveScore()
@@ -216,5 +202,24 @@ class MembersAreaController extends ControllerBase
         	$handicapSet = array($handicapSet);
         }
         echo json_encode($handicapSet);
+    }
+    
+    protected function alternateUserLookup()
+    {
+        $this->isAjax = true;
+        $response = array();
+        
+        $altUserEmail = $_POST['altUserEmail'];
+        
+        $userMapper = new User_Mapper();
+        $collection = $userMapper->fetchAll("email = :email", array(':email' => $altUserEmail));
+        
+        if(!empty($collection)){
+            $alternateUser = $collection[0];
+            $handicapIndex = User_Helper::getHandicap($alternateUser);
+            $response[] = $handicapIndex;
+        }
+        
+        echo json_encode($response);
     }
 }
