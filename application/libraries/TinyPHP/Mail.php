@@ -14,6 +14,7 @@ class Mail
     private $body;
     private $attachments = array();
     private $transportType = 'smtp';
+    private $replyTo;
 
     public function addRecipient($recipientEmail)
     {
@@ -52,6 +53,11 @@ class Mail
     {
         $this->transportType = $transportType;
     }
+    
+    public function setReplyTo($replyTo)
+    {
+        $this->replyTo = $replyTo;
+    }
 
     public function send()
     {
@@ -81,6 +87,11 @@ class Mail
                 $mail->AddAttachment($attachmentPath);
             }
         }
+        
+        if($this->replyTo){
+            $mail->addReplyTo($this->replyTo);
+        }
+        
         if(!$mail->Send()){
             throw new Exception("Mailer Error: " . $mail->ErrorInfo);
         }
