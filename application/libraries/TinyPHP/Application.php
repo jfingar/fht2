@@ -41,13 +41,24 @@ class Application
     private static function initPHPMailer()
     {
         spl_autoload_register(function($class){
-            if($class == 'PHPMailer'){
-                $phpMailerPath = '../../libraries/PHPMailer/class.phpmailer.php';
-                $phpMailerPathAlt = '../application/libraries/PHPMailer/class.phpmailer.php';
-                if(file_exists($phpMailerPath)){
-                    require_once $phpMailerPath;
-                }elseif(file_exists($phpMailerPathAlt)){
-                    require_once $phpMailerPathAlt;
+            $classes = array('PHPMailer', 'SMTP');
+            if(in_array($class, $classes)){
+                $phpMailerPath = '../../libraries/PHPMailer/';
+                $phpMailerPathAlt = '../application/libraries/PHPMailer/';
+                switch($class){
+                    case 'PHPMailer' :
+                        $classFilename = 'class.phpmailer.php';
+                    break;
+                    case 'SMTP' :
+                        $classFilename = 'class.smtp.php';
+                    break;
+                    default :
+                        $classFilename = '';
+                }
+                if(file_exists($phpMailerPath . $classFilename)){
+                    require_once $phpMailerPath . $classFilename;
+                }elseif(file_exists($phpMailerPathAlt . $classFilename)){
+                    require_once $phpMailerPathAlt . $classFilename;
                 }
             }
         });
