@@ -83,9 +83,13 @@
 </div>
 <div class="clear"></div>
 <div id="tandc-modal">
-    <p>FreeHandicapTracker.net is a completely free service. We will not bill you or ask for your payment information at any time, for any reason. We also will never sell your e-mail address or any other information to any 3rd parties.</p>
+    <p><strong>FreeHandicapTracker.net is a completely free service.</strong> We will not bill you or ask for your payment information at any time, for any reason. We also will never sell your e-mail address or any other information to any 3rd parties.</p>
     <hr />
-    <p>The handicap index that is calculated for you is accurate to the best of the website owner's knowledge. However, FreeHandicapTracker.net does not guarantee accuracy on your handicap index. When you set up an account at FreeHandicapTracker.net, you agree that the owner of this website will not be held liable for any competition-related outcome based on the handicap calculated and provided.</p>
+    <p><strong>FreeHandicapTracker.net is not affiliated with the USGA in any way.</strong> The Handicap Index provided by this site does not represent an official USGA handicap. This website and all affiliated applications are strictly for personal reference and should not be considered an &quot;Official&quot; Handicap Index.</p>
+    <hr />
+    <p>The handicap index that is calculated for you is accurate to the best of the website owner's knowledge. However, <strong>FreeHandicapTracker.net does not guarantee accuracy on your handicap index</strong>. When you set up an account at FreeHandicapTracker.net, you agree that the owner of this website will not be held liable for any competition-related outcome based on the handicap calculated and provided.</p>
     <hr />
     <p>Also, by signing up for this service, you agree that the website owner will not be held liable for any lost golf data or records that are stored on this site due to any technical malfunction or site closure.</p>
+    <hr />
+    <p>By registering for this service through the website or any other affiliated applications (Android application, or any others), you acknowledge and agree to the above terms and conditions. <strong>Thank you and enjoy this free service!</strong></p>
 </div>
